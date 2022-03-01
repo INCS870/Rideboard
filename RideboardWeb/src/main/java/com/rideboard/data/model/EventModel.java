@@ -5,8 +5,9 @@ import java.util.Date;
 public class EventModel extends BaseModel {
 	private int eventId = 0;
 	private int userId = 0;
-	private String title = null;
-	private String desc = null;
+	private int raceId = 0;
+	private int teamId = 0;
+	private int sponsorId = 0;
 	private String type = null;
 	private String location = null;
 	private Date fromDt = null;
@@ -25,24 +26,32 @@ public class EventModel extends BaseModel {
 		return eventId;
 	}
 
+	public int getRaceId() {
+		return raceId;
+	}
+
+	public void setRaceId(int raceId) {
+		this.raceId = raceId;
+	}
+
+	public int getTeamId() {
+		return teamId;
+	}
+
+	public void setTeamId(int teamId) {
+		this.teamId = teamId;
+	}
+
+	public int getSponsorId() {
+		return sponsorId;
+	}
+
+	public void setSponsorId(int sponsorId) {
+		this.sponsorId = sponsorId;
+	}
+
 	public void setEventId(int eventId) {
 		this.eventId = eventId;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
 	}
 
 	public String getType() {

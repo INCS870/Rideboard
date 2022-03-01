@@ -1,14 +1,18 @@
 package com.rideboard.bean;
 
-public class SponsorInfoBean implements java.io.Serializable {
+public class SponsorInfoBean extends EntityInfoBean implements java.io.Serializable {
 	private static final long serialVersionUID = 2286697265248878005L;
 	private int sponsorId = 0;
 	private String companyName = null;
 	private String jobTitle = null;
 	private String jobDesc = null;
 	private String requestDateStr = null;
+	private String bnNumber = null;
 	private double amount = 0.0;
 	
+	public SponsorInfoBean() {
+		super(com.rideboard.common.Constants.TYPE_SPONSOR);
+	}
 	public int getSponsorId() {
 		return sponsorId;
 	}
@@ -44,5 +48,11 @@ public class SponsorInfoBean implements java.io.Serializable {
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+	public String getBnNumber() {
+		return bnNumber;
+	}
+	public void setBnNumber(String bnNumber) {
+		this.bnNumber = bnNumber;
 	}
 }

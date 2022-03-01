@@ -1,13 +1,17 @@
 package com.rideboard.bean;
 
-public class TeamInfoBean implements java.io.Serializable {
+public class TeamInfoBean extends EntityInfoBean implements java.io.Serializable {
 	private static final long serialVersionUID = 2286697265248878006L;
 	private int teamId = 0;
 	private String teamTitle = null;
 	private java.util.List<String> typeList = null;
 	private int ranking = 0;
+	private String bnNumber = null;
 	private double budget = 0.0;
 	
+	public TeamInfoBean() {
+		super(com.rideboard.common.Constants.TYPE_TEAM);
+	}
 	public int getTeamId() {
 		return teamId;
 	}
@@ -37,5 +41,11 @@ public class TeamInfoBean implements java.io.Serializable {
 	}
 	public void setBudget(double budget) {
 		this.budget = budget;
+	}
+	public String getBnNumber() {
+		return bnNumber;
+	}
+	public void setBnNumber(String bnNumber) {
+		this.bnNumber = bnNumber;
 	}
 }

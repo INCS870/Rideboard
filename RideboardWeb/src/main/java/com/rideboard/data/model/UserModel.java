@@ -1,15 +1,11 @@
 package com.rideboard.data.model;
 
 public class UserModel extends BaseModel {
-	private int userid = 0;
+	private int userId = 0;
+	private int racerId = 0;
+	private int teamId = 0;
+	private int sponsorId = 0;
 	private String user_name = null;
-	private String first_name = null;
-	private String mid_name = null;
-	private String last_name = null;
-	private String team_name = null;
-	private String company_name = null;
-	private String sin_number = null;
-	private String bn_number = null;
 	private String password = null;
 	private String photo_path = null;
 	private int attempt_count = 0;
@@ -17,42 +13,37 @@ public class UserModel extends BaseModel {
 	private java.util.Date last_attempt_dt = null;
 	
 	private String role = null;
-	
-	
-	public String getRole() {
-		return role;
+
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	public int getUserid() {
-		return userid;
+	public int getRacerId() {
+		return racerId;
 	}
 
-	public String getSin_number() {
-		return sin_number;
+	public void setRacerId(int racerId) {
+		this.racerId = racerId;
 	}
 
-	public void setSin_number(String sin_number) {
-		this.sin_number = sin_number;
+	public int getTeamId() {
+		return teamId;
 	}
 
-	public String getBn_number() {
-		return bn_number;
+	public void setTeamId(int teamId) {
+		this.teamId = teamId;
 	}
 
-	public void setBn_number(String bn_number) {
-		this.bn_number = bn_number;
+	public int getSponsorId() {
+		return sponsorId;
 	}
 
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
-
-	public String getFirst_name() {
-		return first_name;
+	public void setSponsorId(int sponsorId) {
+		this.sponsorId = sponsorId;
 	}
 
 	public String getUser_name() {
@@ -61,42 +52,6 @@ public class UserModel extends BaseModel {
 
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
-	}
-
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-
-	public String getMid_name() {
-		return mid_name;
-	}
-
-	public void setMid_name(String mid_name) {
-		this.mid_name = mid_name;
-	}
-
-	public String getLast_name() {
-		return last_name;
-	}
-
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
-	}
-
-	public String getTeam_name() {
-		return team_name;
-	}
-
-	public void setTeam_name(String team_name) {
-		this.team_name = team_name;
-	}
-
-	public String getCompany_name() {
-		return company_name;
-	}
-
-	public void setCompany_name(String company_name) {
-		this.company_name = company_name;
 	}
 
 	public String getPassword() {
@@ -138,15 +93,12 @@ public class UserModel extends BaseModel {
 	public void setLast_attempt_dt(java.util.Date last_attempt_dt) {
 		this.last_attempt_dt = last_attempt_dt;
 	}
-	
-	public String getName() {
-		if("racer".equals(role)) {
-			return getFirst_name() + (mid_name == null ? "" : " " + mid_name) + " " + getLast_name();
-		} else if("team".equals(role)) {
-			return getTeam_name();
-		} else if("sponsor".equals(role)) {
-			return getCompany_name();
-		}
-		return "";
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

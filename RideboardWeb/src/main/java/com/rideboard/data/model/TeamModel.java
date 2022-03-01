@@ -3,6 +3,7 @@ package com.rideboard.data.model;
 public class TeamModel extends BaseModel {
 	private int teamId = 0;
 	private String teamTitle = null;
+	private String bn_number = null;
 	private int ranking = 0;
 	private double budget = 0.0;
 	
@@ -29,5 +30,11 @@ public class TeamModel extends BaseModel {
 	}
 	public void setBudget(double budget) {
 		this.budget = budget;
+	}
+	public String getBn_number() {
+		return bn_number;
+	}
+	public void setBn_number(String bn_number) {
+		this.bn_number = bn_number;
 	}
 }
