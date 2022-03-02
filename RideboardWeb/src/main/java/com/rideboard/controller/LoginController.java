@@ -15,6 +15,7 @@ import com.rideboard.bean.RacerInfoBean;
 import com.rideboard.bean.TeamInfoBean;
 import com.rideboard.data.*;
 import com.rideboard.data.model.EventModel;
+import com.rideboard.data.model.RaceModel;
 import com.rideboard.data.model.SponsorModel;
 import com.rideboard.data.model.UserModel;
 
@@ -104,7 +105,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/next", method = RequestMethod.POST)
-	public String nextPage(Model model) throws Exception {
+	public String mainPage(Model model) throws Exception {
 		model.addAttribute("host_ip", java.net.InetAddress.getLocalHost());
 		Object userId = com.rideboard.common.Utils.getSession("security.userid");
 		if (userId == null)
@@ -123,7 +124,14 @@ public class LoginController {
 		if (sponsors != null) {
 			for (SponsorModel sponsor : sponsors) {
 				if (sponsor != null)
-					dashInfoBean.addSponsorInfo(sponsorDao.parseInfoBean(sponsors));
+					dashInfoBean.addSponsorInfo(sponsorDao.parseInfoBean(sponsor));
+			}
+		}
+		java.util.Collection<RaceModel> races = raceDao.all();
+		if (races != null) {
+			for (RaceModel race : races) {
+				if (race != null)
+					dashInfoBean.addRaceInfo(raceDao.parseInfoBean(race));
 			}
 		}
 		

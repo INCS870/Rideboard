@@ -12,7 +12,7 @@ public class SponsorDao {
 	public java.util.Collection<SponsorModel> all() {
 		return Database.listSponsors();
 	}
-	public SponsorInfoBean parseInfoBean(List<SponsorModel> sponsors) {
+	public SponsorInfoBean parseInfoBean(SponsorModel sponsors) {
 		// TODO Auto-generated method stub
 		return null;
 	}
