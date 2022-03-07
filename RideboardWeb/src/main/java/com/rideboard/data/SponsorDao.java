@@ -9,15 +9,27 @@ public class SponsorDao {
 	public SponsorModel findSponsorById(int key) {
 		return Database.findSponsorById(key);
 	}
+
 	public java.util.Collection<SponsorModel> all() {
 		return Database.listSponsors();
 	}
-	public SponsorInfoBean parseInfoBean(SponsorModel sponsors) {
-		// TODO Auto-generated method stub
-		return null;
+
+	public SponsorInfoBean parseInfoBean(SponsorModel sponsor) {
+		SponsorInfoBean retVal = null;
+		if (sponsor != null) {
+			retVal = new SponsorInfoBean();
+			retVal.setAmount(sponsor.getAmount());
+			retVal.setBnNumber(sponsor.getBn_number());
+			retVal.setCompanyName(sponsor.getCompanyName());
+			retVal.setJobDesc(sponsor.getJobDesc());
+			retVal.setJobTitle(sponsor.getJobTitle());
+			retVal.setRequestDateStr(sponsor.getRequestDateStr());
+			retVal.setSponsorId(sponsor.getSponsorId());
+		}
+		return retVal;
 	}
+
 	public List<SponsorModel> findSponsorByUserId(Integer userId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

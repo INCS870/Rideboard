@@ -3,44 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <%@ include file="header.jsp"%>
-<!-- 
-<head>
-	<meta charset="UTF-8">
-	<link rel="apple-touch-icon" type="image/png"
-		href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-	<meta name="apple-mobile-web-app-title" content="CodePen">
-	
-	<link rel="shortcut icon" type="image/x-icon"
-		href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-	
-	<link rel="mask-icon" type="image/x-icon"
-		href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
-		color="#111" />
-	
-	<title>Rideboard - Dashboard</title>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
-		rel="stylesheet">
-	<link rel="stylesheet"
-		href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-		crossorigin="anonymous">
-	<link rel="shortcut icon" type="image/png" href="#">
-	
-	<link rel="stylesheet" href="resources/css/main.css">
-	
-	<script>
-	  window.console = window.console || function(t) {};
-	</script>
-	<script>
-	  if (document.location.search.match(/type=embed/gi)) {
-	    window.parent.postMessage("resize", "*");
-	  }
-	</script>
-</head>
- -->
- 
+
 <body translate="no">
 	<div class="grid">
 		<%@ include file="title.jsp"%>
@@ -277,19 +241,38 @@
 						</c:if>
 					</div>
 				</div>
-				<div class="card card--finance">
+				<div class="card">
 					<div class="card__header">
 						<div class="card__header-title text-light">
 							<strong>Sponsor</strong>
-							<!-- 							<a href="#" class="card__header-link text-bold">View All</a> -->
 						</div>
-						<!-- 						<div class="settings"> -->
-						<!-- 							<div class="settings__block"> -->
-						<!-- 								<i class="fas fa-edit"></i> -->
-						<!-- 							</div> -->
-						<!-- 							<div class="settings__block"> -->
-						<!-- 								<i class="fas fa-cog"></i> -->
-						<!-- 							</div> -->
+					</div>
+					<div class="card">
+						<c:if test="${pageObj.sponsorList!=null}">
+							<div class="divgrid">
+								<div class="tbl-tr">
+									<div class="tbl-td">Date</div>
+									<div class="tbl-td">Company</div>
+									<div class="tbl-td">Job</div>
+									<div class="tbl-td">Amount</div>
+								</div>
+								<c:forEach var="sponsor" items="${pageObj.sponsorList}">
+									<div class="tbl-tr">
+										<div class="tbl-td">${sponsor.requestDateStr }</div>
+										<div class="tbl-td">${sponsor.companyName }</div>
+										<div class="tbl-td">${sponsor.jobTitle }</div>
+										<div class="tbl-td">${sponsor.amount }</div>
+									</div>
+								</c:forEach>
+							</div>
+						</c:if>
+					</div>
+				</div>
+				<div class="card card--finance">
+					<div class="card__header">
+						<div class="card__header-title text-light">
+							<strong>Revenue</strong>
+						</div>
 					</div>
 				</div>
 				<div id="chartdiv"></div>

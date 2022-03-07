@@ -1,8 +1,5 @@
 package com.rideboard.data;
 
-import java.util.Set;
-import java.util.Map.Entry;
-
 import com.rideboard.bean.EntityInfoBean;
 import com.rideboard.bean.RacerInfoBean;
 import com.rideboard.bean.SponsorInfoBean;

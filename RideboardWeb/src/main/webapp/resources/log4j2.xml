@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Appenders>
+		<Console name="CONSOLE" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy/MM/dd HH:mm:ss:SSS} %-5level %logger{36}.%M(%F:%L) - %msg%n"></PatternLayout>
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<logger name="org.springframework" level="INFO" />
+		<logger name="com.opensymphony.xwork2" level="INFO" />
+		<logger name="com.opensymphony.xwork2.util" level="ERROR" />
+		<logger name="org.apache.struts2.interceptor" level="INFO" />
+		<logger name="org.apache.struts2.json" level="INFO" />
+		<logger name="com.rideboard" level="INFO" />
+		<Root level="DEBUG">
+			<AppenderRef ref="CONSOLE"></AppenderRef>
+		</Root>
+	</Loggers>
+</Configuration>

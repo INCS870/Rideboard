@@ -13,6 +13,7 @@
 			<div style="color: red; background-color: #FFFFFF">${error}</div>
 			<br/>
 			<table style="background-color: #EEEEEE">
+				<tr><td>&nbsp;</td></tr>
 				<tr>
 					<td>User Name</td>
 					<td><input type="text" name="userName" /></td>
@@ -27,6 +28,7 @@
 				<tr>
 					<td colspan="2"><div align="center"><input type="submit" value="Submit" /></div></td>
 				</tr>
+				<tr><td>&nbsp;</td></tr>
 			</table>
 		</div>
 	</form:form> </main>

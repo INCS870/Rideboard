@@ -32,14 +32,21 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String init(Model model) throws Exception {
-		model.addAttribute("msg", "Please Enter Your Login Details");
 		model.addAttribute("host_ip", java.net.InetAddress.getLocalHost());
+		
+		Object userObj = com.rideboard.common.Utils.getSession("security.userid");
+		if(userObj != null) {
+			model.addAttribute("msg", userObj);
+			return mainPage(model);
+		}
+		
 		return "login";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean) throws Exception {
+	public String login(Model model, @ModelAttribute("loginBean") LoginBean loginBean) throws Exception {
 		model.addAttribute("host_ip", java.net.InetAddress.getLocalHost());
+		
 		if (loginBean != null) {
 			String userName = loginBean.getUserName();
 			String password = loginBean.getPassword();
@@ -80,7 +87,7 @@ public class LoginController {
 				bean.setRoleName(user.getRole());
 				bean.setLastLoginDate(com.rideboard.common.Utils.formatDate(user.getLast_attempt_dt()));
 				model.addAttribute("userObj", bean);
-				return "success";
+				return mainPage(model);
 			} else {
 				int cnt = user.getAttempt_count() + 1;
 				user.setLast_attempt_dt(todate);
@@ -98,21 +105,20 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
-	public String submit(Model model) throws Exception {
+	public String logout(Model model) throws Exception {
 		model.addAttribute("host_ip", java.net.InetAddress.getLocalHost());
 		com.rideboard.common.Utils.removeSession("security.userid");
 		return "login";
 	}
 
-	@RequestMapping(value = "/next", method = RequestMethod.POST)
 	public String mainPage(Model model) throws Exception {
 		model.addAttribute("host_ip", java.net.InetAddress.getLocalHost());
 		Object userId = com.rideboard.common.Utils.getSession("security.userid");
 		if (userId == null)
 			return "login";
+		model.addAttribute("userProfile", userId);
 
 		DashInfoBean dashInfoBean = new DashInfoBean();
-
 		java.util.List<EventModel> events = eventDao.findEventByUserId((Integer) userId);
 		if (events != null) {
 			for (EventModel event : events) {
@@ -120,7 +126,7 @@ public class LoginController {
 					dashInfoBean.addEventInfo(eventDao.parseInfoBean(event));
 			}
 		}
-		java.util.List<SponsorModel> sponsors = sponsorDao.findSponsorByUserId((Integer) userId);
+		java.util.Collection<SponsorModel> sponsors = sponsorDao.all(); //sponsorDao.findSponsorByUserId((Integer) userId);
 		if (sponsors != null) {
 			for (SponsorModel sponsor : sponsors) {
 				if (sponsor != null)

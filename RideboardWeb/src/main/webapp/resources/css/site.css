@@ -2,13 +2,13 @@
     position: relative;
   	padding-left: 10px;
   	padding-right: 10px;
-  	padding-top: 10px;
-  	padding-bottom: 10px;
-  	margin-left: 10px;
-  	margin-right: 10px;
+  	padding-top: 5px;
+  	padding-bottom: 5px;
+  	margin-left: 0px;
+  	margin-right: 0px;
 	min-width: 95%;
 	max-height: 100px;
-	background-color:#FF0000;
+	background-color:#DD0000;
 	color:#EEEEEE;
 }
 
@@ -16,10 +16,10 @@ footer {
     position: relative;
   	padding-left: 10px;
   	padding-right: 10px;
-  	margin-left: 10px;
-  	margin-right: 10px;
+  	margin-left: 0px;
+  	margin-right: 0px;
 	min-width: 95%;
-	max-height: 50px;
+	min-height: 30px;
 	background-color:#555555;
 	color:#EEEEEE;
 }

@@ -377,6 +377,8 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 	width: 98%;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
 	border-collapse: collapse;
 }
 
@@ -408,6 +410,8 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 .divgrid .tbl-td, .divgrid .tbl-th {
 	display: table-cell;
 	border: 1px solid #CCC;
+	padding-left: 5px;
+	padding-right: 5px;
 	cursor: pointer;
 }
 
@@ -641,10 +645,6 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 	width: inherit;
 }
 
-.filter_rule .text-box, .filter_rule select {
-	
-}
-
 .filter_rule .filter_rule_name_input {
 	width: 21em;
 }
@@ -743,10 +743,6 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 	font-weight: bold;
 }
 
-.filter_condition_operator {
-	
-}
-
 .filter_condition_value {
 	text-decoration: underline;
 }
@@ -779,7 +775,7 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 	left: -300px;
 	z-index: 5001;
 	padding: 0px;
-	vertical-align: top;
+/* 	vertical-align: top; */
 }
 
 .main_menu .menu_bg_color {
@@ -794,10 +790,6 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 	/*width: 250px;*/
 	max-width: 250px;
 	width: auto;
-}
-
-.sub_menu_item body {
-	
 }
 
 .sub_menu_item a {
@@ -945,7 +937,7 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 	text-align: left;
 	left: 0;
 	line-height: 2em;
-	vertical-align: middle;
+/* 	vertical-align: middle; */
 }
 
 #func_id {
@@ -965,13 +957,15 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 #item_header_bar {
 	float: left;
 	text-align: left;
-	display: inline-block;
+/* 	display: inline-block; */
+	display: block;
 }
 
 #item_bar #item_button_bar {
 	float: right;
 	text-align: right;
-	display: inline-block;
+	display: block;
+/* 	display: inline-block; */
 }
 
 #detail_content {
@@ -991,11 +985,12 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 	/*overflow-y: hidden;*/
 	overflow-y: scroll !important;
 	overflow-x: auto;
-	display: inline-block;
+	display: block;
+/* 	display: inline-block; */
 	/*width: 100%;*/
 	/*font-size: 11pt;
     min-width: 80%;*/
-	vertical-align: top;
+/* 	vertical-align: top; */
 	/*white-space:nowrap;*/
 	width: 100%;
 }
@@ -1007,9 +1002,6 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 /* end body content css */
 
 /* begin main content*/
-#detail_content .error_message {
-	
-}
 
 #detail_content {
 	width: 100%;
@@ -1017,7 +1009,8 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 
 #subMenu_content {
 	float: left;
-	display: inline-block;
+	display: block;
+/* 	display: inline-block; */
 	width: 20%;
 	/*
     max-width: 20%;
@@ -1114,10 +1107,6 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 	color: red;
 }
 
-.listing_table {
-	
-}
-
 .listing_table th, .listing_table td {
 	padding: 0.5em;
 	border: 1px solid #878e98;
@@ -1154,39 +1143,11 @@ input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not
 	background-color: rgb(238, 238, 238);
 }
 
-/* Table itself */
-.table {
-	width: 100%;
-}
-
-/* Table header field */
-.table th {
-	
-}
-
-/* Table value field */
-.table td {
-	
-}
-
-/* Table pager */
-.pager {
-	
-}
-
-/* Table pager descirption (e.g. Showing a to b of c entries)*/
-.well {
-	
-}
 
 /* Search condition table */
 .filter_condition_table {
 	/*background-color: #CBDAFF;*/
 	width: 100%;
-}
-
-.filter_condition_table th:first-child {
-	
 }
 
 /* pop up message */
@@ -1300,11 +1261,6 @@ div .content {
 
 .summary_row input[type='text'] {
 	width: 100px;
-}
-
-.user_id_input {
-	/*text-transform: uppercase;*/
-	
 }
 
 .float_center {
@@ -1706,15 +1662,6 @@ th .ui-state-default, th .ui-widget-content .ui-state-default, th .ui-widget-hea
 	box-shadow: none;
 }
 
-/*.imageButton:disabled {
-    opacity: 0.4;
-    filter: alpha(opacity=40);
-}*/
-.dcsButton {
-	/*background-color: cornflowerblue;*/
-	
-}
-
 .dcsButton:disabled {
 	cursor: not-allowed;
 }
@@ -1725,10 +1672,6 @@ a.dcsButton {
 
 .dcsButtonNoShow {
 	display: none;
-}
-
-.dcsButtonDisable {
-	
 }
 
 .dcsButton span.imageButton {
