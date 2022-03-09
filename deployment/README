@@ -1,0 +1,4 @@
+tar xf wildfly_baseline.tar
+cp Rideboard.war $HOME/wildfly-23.0.2.Final/standalone/deployments/
+cp run_wildfly.sh $HOME/
+sudo ./run_wildfly.sh start
