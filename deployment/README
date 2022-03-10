@@ -1,3 +1,6 @@
+# ver 0.1 for non-ha only
+
 cp Rideboard.war $HOME/wildfly-23.0.2.Final/standalone/deployments/
+cp standalone.xml $HOME/wildfly-23.0.2.Final/standalone/configuration/
 ln -sf wildfly-23.0.2.Final wildfly
 sudo ./run_wildfly.sh start
