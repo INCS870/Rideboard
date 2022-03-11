@@ -1,5 +1,6 @@
 # ver 0.2 for non-ha only
 
+sudo yum install java
 curl -O https://download.jboss.org/wildfly/23.0.2.Final/wildfly-23.0.2.Final.tar.gz
 gunzip wildfly-23.0.2.Final.tar.gz
 tar xf wildfly-23.0.2.Final.tar
