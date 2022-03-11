@@ -1,6 +1,10 @@
-# ver 0.1 for non-ha only
+# ver 0.2 for non-ha only
 
+curl -O https://download.jboss.org/wildfly/23.0.2.Final/wildfly-23.0.2.Final.tar.gz
+gunzip wildfly-23.0.2.Final.tar.gz
+tar xf wildfly-23.0.2.Final.tar
 cp Rideboard.war $HOME/wildfly-23.0.2.Final/standalone/deployments/
 cp standalone.xml $HOME/wildfly-23.0.2.Final/standalone/configuration/
 ln -sf wildfly-23.0.2.Final wildfly
+mv wildfly-23.0.2.Final.tar
 sudo ./run_wildfly.sh start
