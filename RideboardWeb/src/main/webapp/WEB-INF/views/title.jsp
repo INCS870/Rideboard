@@ -18,8 +18,10 @@
 	</script>
 	<table>
 		<tr>
-			<td width="5%" align="left"><img src='resources/images/icon.png'
-				width='56' height='56' /></td>
+			<td width="5%" align="left">
+			<a href="/Rideboard">
+			<img src='resources/images/icon.png'
+				width='56' height='56' /></a></td>
 			<td>&nbsp;</td>
 			<td><b><font size="6">Rideboard</font></b></td>
 			<td>&nbsp;</td>

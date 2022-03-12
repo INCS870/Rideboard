@@ -57,4 +57,10 @@ public class Utils {
 			session.removeAttribute(key);
 		}
 	}
+	
+	public static void main(String[] args) {
+		String plain = "password";
+		System.out.println("\n Plain "+plain+" -- > " + hash(plain));
+		
+	}
 }

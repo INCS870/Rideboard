@@ -11,6 +11,11 @@ public class IndexController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String init(Model model) throws Exception {
 		model.addAttribute("host_ip",  java.net.InetAddress.getLocalHost());
+		Object userObj = com.rideboard.common.Utils.getSession("security.userid");
+		if(userObj != null) {
+			model.addAttribute("msg", userObj);
+			return "main";
+		}
 		return "login";
 	}
 }
