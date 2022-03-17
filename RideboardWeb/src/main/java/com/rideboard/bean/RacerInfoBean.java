@@ -5,10 +5,10 @@ import com.rideboard.common.Constants;
 public class RacerInfoBean extends EntityInfoBean implements java.io.Serializable {
 	private static final long serialVersionUID = -4985530574283248251L;
 	private int racerId = 0;
-	private String first_name = null;
-	private String mid_name = null;
-	private String last_name = null;
-	private String sin_number = null;
+	private String firstName = null;
+	private String midName = null;
+	private String lastName = null;
+	private String sin = null;
 	private int ranking = 0;
 
 	public RacerInfoBean() {
@@ -23,36 +23,36 @@ public class RacerInfoBean extends EntityInfoBean implements java.io.Serializabl
 		this.racerId = racerId;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getMid_name() {
-		return mid_name;
+	public String getMidName() {
+		return midName;
 	}
 
-	public void setMid_name(String mid_name) {
-		this.mid_name = mid_name;
+	public void setMidName(String midName) {
+		this.midName = midName;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getSin_number() {
-		return sin_number;
+	public String getSin() {
+		return sin;
 	}
 
-	public void setSin_number(String sin_number) {
-		this.sin_number = sin_number;
+	public void setSin(String sin) {
+		this.sin = sin;
 	}
 
 	public int getRanking() {

@@ -12,7 +12,7 @@
 		<logger name="com.opensymphony.xwork2.util" level="ERROR" />
 		<logger name="org.apache.struts2.interceptor" level="INFO" />
 		<logger name="org.apache.struts2.json" level="INFO" />
-		<logger name="com.rideboard" level="INFO" />
+		<logger name="com.rideboard" level="DEBUG" />
 		<Root level="DEBUG">
 			<AppenderRef ref="CONSOLE"></AppenderRef>
 		</Root>

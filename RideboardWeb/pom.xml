@@ -10,7 +10,8 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.6</java-version>
-		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
+		<org.springframework-version>5.3.16</org.springframework-version>
+<!-- 		<org.springframework-version>3.1.1.RELEASE</org.springframework-version> -->
 		<org.spring.jpa.version>2.6.4</org.spring.jpa.version>
 		<org.hibernate.version>5.6.5.Final</org.hibernate.version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
@@ -37,7 +38,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
+			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
@@ -132,19 +133,6 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${org.hibernate.version}</version>
-		</dependency>
-
-		<!-- JDBC -->
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc11</artifactId>
-			<version>21.5.0.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>3.3.0</version>
 		</dependency>
 	</dependencies>
 	<build>

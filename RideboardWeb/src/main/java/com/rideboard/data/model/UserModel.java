@@ -2,10 +2,7 @@ package com.rideboard.data.model;
 
 public class UserModel extends BaseModel {
 	private int userId = 0;
-	private int racerId = 0;
-	private int teamId = 0;
-	private int sponsorId = 0;
-	private String user_name = null;
+	private String userName = null;
 	private String password = null;
 	private String photo_path = null;
 	private int attempt_count = 0;
@@ -22,36 +19,12 @@ public class UserModel extends BaseModel {
 		this.userId = userId;
 	}
 
-	public int getRacerId() {
-		return racerId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setRacerId(int racerId) {
-		this.racerId = racerId;
-	}
-
-	public int getTeamId() {
-		return teamId;
-	}
-
-	public void setTeamId(int teamId) {
-		this.teamId = teamId;
-	}
-
-	public int getSponsorId() {
-		return sponsorId;
-	}
-
-	public void setSponsorId(int sponsorId) {
-		this.sponsorId = sponsorId;
-	}
-
-	public String getUser_name() {
-		return user_name;
-	}
-
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {

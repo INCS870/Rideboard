@@ -2,6 +2,7 @@ package com.rideboard.data.model;
 
 public class TeamModel extends BaseModel {
 	private int teamId = 0;
+	private int userId = 0;
 	private String teamTitle = null;
 	private String bn_number = null;
 	private int ranking = 0;
@@ -12,6 +13,12 @@ public class TeamModel extends BaseModel {
 	}
 	public void setTeamId(int teamId) {
 		this.teamId = teamId;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getTeamTitle() {
 		return teamTitle;

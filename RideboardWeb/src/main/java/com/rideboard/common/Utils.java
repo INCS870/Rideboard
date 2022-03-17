@@ -1,5 +1,7 @@
 package com.rideboard.common;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
@@ -55,6 +57,22 @@ public class Utils {
 			ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 			HttpSession session = attr.getRequest().getSession();
 			session.removeAttribute(key);
+		}
+	}
+	
+	public static <T,G> void autoMap(G input, T output) throws Exception {
+		Field[] fields = null;
+		Method inputMethod = null, outputMethod = null;
+		if(input != null && output != null) {
+			fields = output.getClass().getFields();
+			for(Field field:fields) {
+				String fieldName = field.getName();
+				if(fieldName.equals("Class")) continue;
+				String qualifiedName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+				inputMethod = input.getClass().getMethod("get" + qualifiedName, null);
+				outputMethod = output.getClass().getMethod("set" + qualifiedName, field.getClass());
+				outputMethod.invoke(output, inputMethod.invoke(input, null));
+			}
 		}
 	}
 	

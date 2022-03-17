@@ -2,6 +2,7 @@ package com.rideboard.data.model;
 
 public class SponsorModel extends BaseModel {
 	private int sponsorId = 0;
+	private int userId = 0;
 	private String companyName = null;
 	private String bn_number = null;
 	private String jobTitle = null;
@@ -11,6 +12,12 @@ public class SponsorModel extends BaseModel {
 
 	private String requestDateStr = null;
 	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public int getSponsorId() {
 		return sponsorId;
 	}
