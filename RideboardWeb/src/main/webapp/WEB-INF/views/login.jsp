@@ -26,7 +26,9 @@
 					<td colspan="2">&nbsp;</td>
 				</tr>
 				<tr>
-					<td colspan="2"><div align="center"><input type="submit" value="Submit" /></div></td>
+					<td colspan="2"><div align="center">
+						<input type="submit" value="Submit" onclick="showLoading()" />
+					</div></td>
 				</tr>
 				<tr><td>&nbsp;</td></tr>
 			</table>

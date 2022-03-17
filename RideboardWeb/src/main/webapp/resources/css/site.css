@@ -41,6 +41,111 @@ td {
   	padding-right: 10px;
 }
 
+pre {
+	border: 0;
+	background-color: transparent;
+	font-size: inherit;
+	height: inherit;
+	overflow-y: auto;
+}
+
+ui-accordion-header-active .ui-state-focus {
+	border: 1px solid #739BFF;
+	color: #FFFFFF !important;
+}
+
+input[type="text"], select, input[type="email"], input[type="password"],
+	input[type="date"], input[type="datetime"] {
+	/*display: block;*/
+	height: auto;
+	max-width: initial;
+	padding: 6px 6px;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow
+		ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	position: relative;
+	white-space: nowrap;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus,
+	input[type="datetime"]:focus, select:hover {
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(102, 175, 233, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(102, 175, 233, 0.6);
+}
+
+input[disabled], input[disabled]:hover, textarea[disabled], textarea[disabled]:hover
+	{
+	cursor: not-allowed;
+	background-color: #e1e1e1;
+}
+
+input[readonly], textarea[readonly] {
+	cursor: no-drop;
+	background-color: #e1e1e1;
+}
+
+/*input[type="text"]:not([class]),*/
+input[type="text"]:not([class]):not([style]), input[type="email"]:not([class]),
+	input[type="date"]:not([class]), input[type="datetime"]:not([class]),
+	input[type="password"]:not([class]) {
+	width: 180px !important;
+}
+
+input[type="button"]:hover, button:hover, input[type="submit"]:hover {
+	background-color: #e8e8e8;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(102, 175, 233, 0.6);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgb(86, 86, 86);
+}
+
+input[type="button"], button, input[type="submit"], input[type="reset"]
+	{
+	/*display: block;*/
+	height: auto;
+	max-width: initial;
+	padding: 6px 6px;
+	line-height: 1;
+	vertical-align: middle;
+	background-color: #f0f0f0;
+	border: 1px solid #808080;
+	border-radius: 8px;
+	/*-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;*/
+	-webkit-box-shadow: inset 0 0px 2px rgba(0, 0, 0, 0.08), 0 0 2px
+		rgba(102, 175, 233, 0.8);
+	box-shadow: inset 0 0px 2px rgba(0, 0, 0, 0.08), 0 0 2px
+		rgba(102, 175, 233, 0.8);
+}
+
+input[type="button"]:not([class]), button:not([class]), input[type="submit"]:not([class])
+	{
+	/*width: 100px;*/
+	width: auto;
+}
+
+* legend {
+	font-size: 1.1em;
+	font-weight: 600;
+	margin-bottom: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #CBDAFF;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */

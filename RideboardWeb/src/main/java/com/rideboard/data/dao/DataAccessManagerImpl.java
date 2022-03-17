@@ -34,7 +34,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				e.printStackTrace();
 				rollback();
 			} finally {
-				closeSession();
+				if (autoCommit) closeSession();
 			}
 			return id == null ? -1 : id.intValue();
 		}
@@ -61,7 +61,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				e.printStackTrace();
 				rollback();
 			} finally {
-				closeSession();
+				if (autoCommit) closeSession();
 			}
 		}
 		return 0;
@@ -87,7 +87,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				e.printStackTrace();
 				rollback();
 			} finally {
-				closeSession();
+				if (autoCommit) closeSession();
 			}
 		}
 		return 0;
@@ -253,13 +253,14 @@ public class DataAccessManagerImpl implements DataAccessManager {
 	}
 
 	@Override
-	public void openSession() {
+	public Session openSession() {
 		if (sessionFactory == null) {
 			logger.warn("\nFailed to return Session because SessionFactory is null.");
 		} else {
 			logger.info("open session");
 			session = sessionFactory.openSession();
 		}
+		return session;
 	}
 
 	public SessionFactory getSessionFactory() {

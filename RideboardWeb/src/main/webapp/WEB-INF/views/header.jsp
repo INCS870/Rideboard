@@ -31,7 +31,7 @@
 	<script type="text/javascript"
 		src="resources/scripts/jquery-ui-1.12.1.min.js"></script>
 	<script type="text/javascript" src="resources/scripts/bootstrap.min.js"></script>
-	<!-- 	<script type="text/javascript" src="resources/scripts/common.js"></script> -->
+		<script type="text/javascript" src="resources/scripts/common.js"></script>
 	
 	<script>
 	  window.console = window.console || function(t) {};

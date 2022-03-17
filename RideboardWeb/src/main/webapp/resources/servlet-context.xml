@@ -47,6 +47,7 @@
 		<beans:property name="mappingResources">
 			<beans:list>
 				<beans:value>hbm/UserTbl.hbm.xml</beans:value>
+				<beans:value>hbm/RoleTbl.hbm.xml</beans:value>
 				<beans:value>hbm/RacerTbl.hbm.xml</beans:value>
 			</beans:list>
 		</beans:property>

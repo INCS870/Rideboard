@@ -2,6 +2,7 @@ package com.rideboard.data.model;
 
 public class UserModel extends BaseModel {
 	private int userId = 0;
+	private int roleId = 0;
 	private String userName = null;
 	private String password = null;
 	private String photo_path = null;
@@ -17,6 +18,14 @@ public class UserModel extends BaseModel {
 
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	public int getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
 
 	public String getUserName() {

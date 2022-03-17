@@ -14,7 +14,7 @@ public class IndexController {
 		Object userObj = com.rideboard.common.Utils.getSession("security.userid");
 		if(userObj != null) {
 			model.addAttribute("msg", userObj);
-			return "main";
+			return new LoginController().mainPage(model);
 		}
 		return "login";
 	}

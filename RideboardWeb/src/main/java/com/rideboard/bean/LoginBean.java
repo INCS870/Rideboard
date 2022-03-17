@@ -2,8 +2,10 @@ package com.rideboard.bean;
 
 public class LoginBean implements java.io.Serializable {
 	private static final long serialVersionUID = 2286697265248878007L;
-	
+	private int userId = 0;
+	private int roleId = 0;
 	private String userName;
+	private String profileName;
 	private String roleName;
 	private String lastLoginDate;
 	private String password;
@@ -32,11 +34,35 @@ public class LoginBean implements java.io.Serializable {
 		this.roleName = roleName;
 	}
 
+	public String getProfileName() {
+		return profileName;
+	}
+
+	public void setProfileName(String profileName) {
+		this.profileName = profileName;
+	}
+
 	public String getLastLoginDate() {
 		return lastLoginDate;
 	}
 
 	public void setLastLoginDate(String lastLoginDate) {
 		this.lastLoginDate = lastLoginDate;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public int getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
 }

@@ -20,7 +20,7 @@ public interface DataAccessManager {
     
     public void commit();    
 	public void rollback();
-	public void openSession();
+	public org.hibernate.Session openSession();
     public void closeSession();
 
     public boolean isAutoCommit();    

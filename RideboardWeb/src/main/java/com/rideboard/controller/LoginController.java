@@ -27,7 +27,9 @@ import com.rideboard.data.dao.UserDao;
 import com.rideboard.data.model.EventModel;
 import com.rideboard.data.model.RaceModel;
 import com.rideboard.data.model.RacerModel;
+import com.rideboard.data.model.RoleModel;
 import com.rideboard.data.model.SponsorModel;
+import com.rideboard.data.model.TeamModel;
 import com.rideboard.data.model.UserModel;
 
 @Controller
@@ -93,7 +95,7 @@ public class LoginController {
 				}
 
 				if ((userPwd == null ? "" : userPwd).equals(hashPwd)) {
-					com.rideboard.common.Utils.addSession("security.userid", user.getUserId());
+					
 					user.setLast_attempt_dt(todate);
 					user.setAttempt_count(0);
 					dataAccessManager.update(user);
@@ -102,17 +104,28 @@ public class LoginController {
 
 					List<RacerModel> racers = dataAccessManager.equal(RacerModel.class, "userId", user.getUserId());
 					if (racers != null && !racers.isEmpty()) {
-						EntityInfoBean entity = new RacerInfoBean();
+						RacerInfoBean entity = new RacerInfoBean();
 						Utils.autoMap(racers.get(0), entity);
-						logger.info("Entity is " + entity);
-						bean.setUserName(entity.getName());
+						logger.info("Racer Entity is " + entity);
+						bean.setProfileName(entity.getName());
+					}
+
+					List<RoleModel> roles = dataAccessManager.equal(RoleModel.class, "roleId", user.getRoleId());
+					if (roles != null && !roles.isEmpty()) {
+						RoleModel role = roles.get(0);
+						user.setRole(role.getRoleCode());
+						bean.setRoleName(role.getRoleName());
 					}
 
 					bean.setUserName(user.getUserName());
-					bean.setRoleName(user.getRole());
 					bean.setLastLoginDate(com.rideboard.common.Utils.formatDate(user.getLast_attempt_dt()));
 					model.addAttribute("userObj", bean);
 
+					com.rideboard.common.Utils.addSession("security.userid", user.getUserId());
+					com.rideboard.common.Utils.addSession("security.roleid", user.getRoleId());
+					com.rideboard.common.Utils.addSession("security.role", user.getRole());
+					com.rideboard.common.Utils.addSession("security.user", user.getUserName());
+					
 					loginFailed = false;
 				} else {
 					loginFailed = true;
@@ -142,15 +155,19 @@ public class LoginController {
 	public String logout(Model model) throws Exception {
 		model.addAttribute("host_ip", java.net.InetAddress.getLocalHost());
 		com.rideboard.common.Utils.removeSession("security.userid");
+		com.rideboard.common.Utils.removeSession("security.role");
 		return "login";
 	}
 
 	public String mainPage(Model model) throws Exception {
 		model.addAttribute("host_ip", java.net.InetAddress.getLocalHost());
 		Object userId = com.rideboard.common.Utils.getSession("security.userid");
-		if (userId == null)
-			return "login";
-		model.addAttribute("userProfile", userId);
+		Object role = com.rideboard.common.Utils.getSession("security.role");
+		
+		if (userId == null) return "login";
+		
+		model.addAttribute("userProfileId", userId);
+		model.addAttribute("userProfileRole", role);
 
 		DashInfoBean dashInfoBean = new DashInfoBean();
 		java.util.List<EventModel> events = eventDao.findEventByUserId((Integer) userId);
@@ -174,14 +191,26 @@ public class LoginController {
 					dashInfoBean.addRaceInfo(raceDao.parseInfoBean(race));
 			}
 		}
-
-		UserModel user = userDao.findUserById((Integer) userId);
-		EntityInfoBean entity = userDao.getEntity(user);
-		if (user.getRole().equals(com.rideboard.common.Constants.TYPE_RACE))
+		
+		
+		if (role.equals(com.rideboard.common.Constants.TYPE_RACE)) {
+			RacerInfoBean entity = new RacerInfoBean();
+			List<RacerModel> racers = dataAccessManager.equal(RacerModel.class, "userId", userId);
+			if (racers != null && !racers.isEmpty()) {
+				Utils.autoMap(racers.get(0), entity);
+				logger.info("Entity is " + entity);
+			}			
 			dashInfoBean.setWorldRank(((RacerInfoBean) entity).getRanking());
-		else if (user.getRole().equals(com.rideboard.common.Constants.TYPE_TEAM))
+		} else if (role.equals(com.rideboard.common.Constants.TYPE_TEAM)) {
+			TeamInfoBean entity = new TeamInfoBean();
+			List<TeamModel> teams = dataAccessManager.equal(TeamModel.class, "userId", userId);
+			if (teams != null && !teams.isEmpty()) {
+				Utils.autoMap(teams.get(0), entity);
+				logger.info("Entity is " + entity);
+			}			
 			dashInfoBean.setWorldRank(((TeamInfoBean) entity).getRanking());
-
+		}
+		
 		model.addAttribute("pageObj", dashInfoBean);
 		return "main";
 	}
