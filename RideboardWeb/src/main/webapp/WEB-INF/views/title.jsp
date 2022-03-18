@@ -2,21 +2,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <header>
-	<form:form id="frmLogout" name="frmLogout" action="logout"
-		method="POST">
+	<form:form id="frmLogout" name="frmLogout" action="logout" method="POST">
 	</form:form>
 	<script>
 		function logout() {
-			document.getElementById("frmLogout").submit(
-				function( event ) {
-					if (!confirm('Are you sure to logout Rideboard ?')) {
-			    	return;
-				}
-				event.preventDefault();
-			});
+			showLoading();
+			if (confirm('Are you sure to logout Rideboard ?')) {
+				document.getElementById("frmLogout").submit();
+			}
 		}
 		function showProfile() {
-			
+			openProfileDiv();
 		}
 	</script>
 	<table>

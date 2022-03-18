@@ -16,11 +16,8 @@ navigator.sayswho = (function () {
     return M;
 })();
 
-/*
- * Disable ctrl + n and other ctrl + key combinations
- * */
-function disableCtrlCombinationAndBack(e) {
 
+function disableCtrlCombinationAndBack(e) {
     var forbiddenKeys = new Array('n', 'r', 'p');
     var realEvent;
     var key;
@@ -188,7 +185,6 @@ function hotKey2() {
     });
     document.oncontextmenu = new Function("return false");
 }
-hotKey2();
 
 function filterScript(content) {
     if (content == null || content == '')
@@ -258,9 +254,87 @@ $(document).ready(function () {
     $("[class^=num_]").ForceNumericOnly();
 });
 
+hotKey2();
+
+
+function showModalDiv(divName, width, height, dialogOptions) {
+    var opts = {
+        width: width,
+        height: height,
+        overlayId: 'confirm-overlay',
+        containerId: 'confirm-container',
+        onShow: function (dialog) {
+            var modal = this;
+        }
+    };
+
+    if (typeof dialogOptions == 'object') {
+        opts = $.extend(opts, dialogOptions);
+    }
+
+    $('#' + divName).modal(opts);
+}
+
+function showDialogDiv(divName, width, height, hasCloseBtn, dialogOptions, sTitle, noCloseCorner) {
+    var opts = {
+        autoOpen: false,
+        resizable: false,
+        modal: true,
+        width: (typeof width != 'undefined') ? width : 'auto',
+        height: (typeof height != 'undefined') ? height : 'auto',
+        // workaround of the issue which caused iframes are displayed over the dialog's overlay  
+        open: function (event, ui) {
+            $('iframe:visible:not(.hidden-by-ui-dialog)').addClass('hidden-by-ui-dialog').hide();
+        },
+        beforeClose: function (event, ui) {
+            $('iframe:hidden').filter('.hidden-by-ui-dialog').removeClass('hidden-by-ui-dialog').show();
+        },
+    };
+
+    if (hasCloseBtn)
+    {
+        $.extend(opts, {
+            buttons: {
+                Close: function () { $(this).dialog("close"); }
+            }
+        });
+    }
+    if (noCloseCorner) {
+        $.extend(opts, { dialogClass: "dialog-no-close" });
+    }
+
+    if (typeof dialogOptions == 'object')
+    {
+        $.extend(opts, dialogOptions);
+    }
+
+    $('#' + divName).css('max-width', window.innerWidth);
+    $('#' + divName).css('max-height', window.innerHeight);
+
+    $('#' + divName).dialog(opts);
+    $('div#'+divName).bind('dialogclose', function(event){
+        closeAjaxDialog(divName, true);
+    });
+    $('#' + divName).title = sTitle;
+    $('#' + divName).dialog("open");
+}
+
+function closeDialogDiv(divName) {
+    $('#' + divName).dialog("close");
+    try { $('#' + divName).style.display = "none"; } catch (e) { }
+}
+
 function showLoading() {
     $('#loadingPage').css('display', 'block');
 }
 function hideLoading() {
     $('#loadingPage').css('display', 'none');
+}
+
+function openProfileDiv() {
+	$('#divProfile').css('display', 'block');
+}
+
+function closeProfileDiv() {
+	$('#divProfile').css('display', 'none');
 }

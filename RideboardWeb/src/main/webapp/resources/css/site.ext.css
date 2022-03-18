@@ -92,6 +92,21 @@
 .profile {
 	background-color: rgba(0, 0, 0, 0.3);
 	display: none;
+	position: fixed;
+	top: 50%;
+	left: 40%;
+	margin-top: -25px;
+	margin-left: -100px;
+	width: 200px;
+	height: 150px;
+	border: 1px solid rgba(225, 225, 225, .1);
+	align-content: center;
+	background-color: rgba(240, 240, 240, 0.95);
+	color: #AAAAAA;
+	vertical-align: central;
+	padding-left: 10px;
+	/*padding-top: 15px;*/
+	border-radius: 6px;
 }
 
 .ui-state-default.ui-state-hover, .ui-state-default.ui-state-focus {

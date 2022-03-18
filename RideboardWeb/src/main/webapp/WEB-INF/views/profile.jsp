@@ -1,30 +1,45 @@
-<div align="center" class="profile">
-	<div class="divgrid">
-		<div class="tbl-tr">
-			<div class="tbl-td">
+<div id="divProfile" align="center" class="profile">
+	<table border="0">
+		<tr>
+			<td colspan="2">
+				<legend>User Profile</legend>			
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
 				<b>${userObj.profileName}</b>			
-			</div>
-		</div>
-		<div class="tbl-tr">
-			<div class="tbl-td">
-			<hr/>
-			</div>
-		</div>
-		<div class="tbl-tr">
-			<div class="tbl-td">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<hr />			
+			</td>
+		</tr>
+		<tr>
+			<td>
 			User Id:
-			</div>
-			<div class="tbl-td">
+			</td>
+			<td>
 			${userObj.userName}
-			</div>
-		</div>
-		<div class="tbl-tr">
-			<div class="tbl-td">
+			</td>
+		</tr>
+		<tr>
+			<td>
 			Role:
-			</div>
-			<div class="tbl-td">
+			</td>
+			<td>
 			${userObj.roleName}
-			</div>
-		</div>
-	</div>
+			</td>
+		</tr>		
+		<tr>
+			<td colspan="2">
+				&nbsp;
+			</td>
+		</tr>		
+		<tr>
+			<td colspan="2">
+				<a href="" onclick="closeProfileDiv()">Close</a>
+			</td>
+		</tr>	
+	</table>
 </div>

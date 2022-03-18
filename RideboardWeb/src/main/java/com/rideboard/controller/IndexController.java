@@ -4,18 +4,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String init(Model model) throws Exception {
+	public ModelAndView init(Model model) throws Exception {
+		ModelAndView view = new ModelAndView();
 		model.addAttribute("host_ip",  java.net.InetAddress.getLocalHost());
 		Object userObj = com.rideboard.common.Utils.getSession("security.userid");
 		if(userObj != null) {
-			model.addAttribute("msg", userObj);
-			return new LoginController().mainPage(model);
+			return new ModelAndView("main");
 		}
-		return "login";
+		return new ModelAndView("login");//"login";
 	}
 }
