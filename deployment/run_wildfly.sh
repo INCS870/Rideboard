@@ -1,7 +1,7 @@
 #!/bin/bash
 
 opt="$1"
-ip=`ifconfig enp0s3 |grep "inet " |awk {'print $2'}`
+ip=`ifconfig eth0 |grep "inet " |awk {'print $2'}`
 if [[ -z "$opt" ]]
 then
 	echo 'Usage: run.sh {start|stop|status}'
@@ -35,3 +35,5 @@ else
 		echo 'Wildfly is running'
 	fi
 fi
+
+while true; do sleep 1000; done

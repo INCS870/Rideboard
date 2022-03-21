@@ -7,5 +7,5 @@ tar xf wildfly-23.0.2.Final.tar
 cp Rideboard.war $HOME/wildfly-23.0.2.Final/standalone/deployments/
 cp standalone.xml $HOME/wildfly-23.0.2.Final/standalone/configuration/
 ln -sf wildfly-23.0.2.Final wildfly
-mv wildfly-23.0.2.Final.tar
+rm wildfly-23.0.2.Final.tar
 sudo ./run_wildfly.sh start
