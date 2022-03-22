@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.rideboard.data.model.RaceModel" table="RACE_TBL">
+		<id name="raceId" column="RACEID" />
+		<property name="title" column="TITLE" />
+		<property name="section" column="SECTION" />
+		<property name="locationCode" column="LOCATION_CD" />
+		<property name="type" column="TYPE_CD" />
+		<property name="companyId" column="COMPANYID" />
+		<property name="round" column="ROUND" />
+		<property name="prizeFirst" column="PRIZE_FIRST" />
+		<property name="prizeSecond" column="PRIZE_SECOND" />
+		<property name="prizeThird" column="PRIZE_THIRD" />
+		<property name="prizeGeneral" column="PRIZE_GENERAL" />
+		<property name="fromDt" column="FROM_DT" />
+		<property name="toDt" column="TO_DT" />
+		
+		<property name="cre_dt" column="CRE_DT" />
+		<property name="last_upd_dt" column="LAST_UPD_DT" />
+		<property name="cre_user" column="CRE_USER" />
+		<property name="last_upd_user" column="LAST_UPD_USER" />	
+	</class>
+</hibernate-mapping>

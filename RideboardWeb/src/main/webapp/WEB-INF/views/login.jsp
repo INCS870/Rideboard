@@ -7,33 +7,39 @@
 <body>
 	<%@ include file="title.jsp"%>
 	<%@ include file="navigation.jsp"%>
-	<main> <form:form name="submitForm" action="login" method="POST">
-		<div align="center">
-			<br />
-			<div style="color: red; background-color: #FFFFFF">${error}</div>
-			<br/>
-			<table style="background-color: #EEEEEE">
-				<tr><td>&nbsp;</td></tr>
-				<tr>
-					<td>User Name</td>
-					<td><input type="text" name="userName" /></td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td><input type="password" name="password" /></td>
-				</tr>
-				<tr>
-					<td colspan="2">&nbsp;</td>
-				</tr>
-				<tr>
-					<td colspan="2"><div align="center">
-						<input type="submit" value="Submit" onclick="showLoading()" />
-					</div></td>
-				</tr>
-				<tr><td>&nbsp;</td></tr>
-			</table>
-		</div>
-	</form:form> </main>
+	<main> 
+		<form:form name="submitForm" action="login" method="POST">
+			<div align="center">
+				<br />
+				<div style="color: red; background-color: #FFFFFF">${error}</div>
+				<br />
+				<table style="background-color: #EEEEEE">
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>User Name</td>
+						<td><input type="text" name="userName" /></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td><input type="password" name="password" /></td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td colspan="2"><div align="center">
+								<input type="submit" value="Submit" onclick="showLoading()" />
+							</div></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</div>
+		</form:form> 
+	</main>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

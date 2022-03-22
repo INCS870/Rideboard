@@ -5,6 +5,7 @@ public class LoginBean implements java.io.Serializable {
 	private int userId = 0;
 	private int roleId = 0;
 	private String userName;
+	private String email;
 	private String profileName;
 	private String roleName;
 	private String lastLoginDate;
@@ -64,5 +65,13 @@ public class LoginBean implements java.io.Serializable {
 
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

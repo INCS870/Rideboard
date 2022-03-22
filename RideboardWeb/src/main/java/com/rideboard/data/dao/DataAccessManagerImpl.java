@@ -33,8 +33,6 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				logger.error("Failed to insert object into " + obj.getClass().getName(), e);
 				e.printStackTrace();
 				rollback();
-			} finally {
-				if (autoCommit) closeSession();
 			}
 			return id == null ? -1 : id.intValue();
 		}
@@ -60,8 +58,6 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				logger.error("Failed to update from " + obj.getClass().getName(), e);
 				e.printStackTrace();
 				rollback();
-			} finally {
-				if (autoCommit) closeSession();
 			}
 		}
 		return 0;
@@ -86,15 +82,38 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				logger.error("Failed to delete from " + obj.getClass().getName(), e);
 				e.printStackTrace();
 				rollback();
-			} finally {
-				if (autoCommit) closeSession();
 			}
 		}
 		return 0;
 	}
 
 	@Override
-	public <T, G> List<T> equal(Class<T> c, String col, G val) {
+	public <T, G> T equalOne(Class<T> c, String col, G val) {
+		T retVal = null;
+		if (c == null || sessionFactory == null) {
+			logger.error("\nEither class or sessionFactory is null: c=" + c + ", f=" + sessionFactory);
+			return null;
+		} else {
+			logger.debug("\nOpen Session by: " + sessionFactory);
+			try {
+				openSession();
+				javax.persistence.criteria.CriteriaBuilder builder = session.getCriteriaBuilder();
+				CriteriaQuery<T> criteria = builder.createQuery(c);
+				Root<T> root = criteria.from(c);
+				criteria.where(builder.equal(root.get(col).as(val.getClass()), val));
+				retVal = session.createQuery(criteria).getSingleResult();
+			} catch (javax.persistence.NoResultException nre) {
+				logger.error("Failed to search from " + c.getName() + " on " + col + " = " + val, nre);
+			} catch (Exception e) {
+				logger.error("Failed to search from " + c.getName() + " on " + col + " = " + val, e);
+				e.printStackTrace();
+			}
+		}
+		return retVal;
+	}
+
+	@Override
+	public <T, G> List<T> equalMore(Class<T> c, String col, G val) {
 		List<T> list = null;
 		if (c == null || sessionFactory == null) {
 			logger.error("\nEither class or sessionFactory is null: c=" + c + ", f=" + sessionFactory);
@@ -111,9 +130,6 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			} catch (Exception e) {
 				logger.error("Failed to search from " + c.getName() + " on " + col + " = " + val, e);
 				e.printStackTrace();
-				rollback();
-			} finally {
-				closeSession();
 			}
 		}
 		return list;
@@ -137,9 +153,6 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			} catch (Exception e) {
 				logger.error("Failed to search from " + c.getName() + " on " + col + " ~ " + val, e);
 				e.printStackTrace();
-				rollback();
-			} finally {
-				closeSession();
 			}
 		}
 		return list;
@@ -171,8 +184,6 @@ public class DataAccessManagerImpl implements DataAccessManager {
 		} catch (Exception e) {
 			logger.error("Failed to get last from " + c.getName(), e);
 			e.printStackTrace();
-		} finally {
-			closeSession();
 		}
 		return retVal;
 	}
@@ -197,14 +208,12 @@ public class DataAccessManagerImpl implements DataAccessManager {
 		} catch (Exception e) {
 			logger.error("Failed to get last from " + c.getName(), e);
 			e.printStackTrace();
-		} finally {
-			closeSession();
 		}
 		return retVal;
 	}
 
 	@Override
-	public <T> List<T> getAll(Class<T> c) {
+	public <T> List<T> list(Class<T> c) {
 		List<T> list = null;
 		if (c == null || sessionFactory == null) {
 			logger.error("\nEither class or sessionFactory is null: c=" + c + ", f=" + sessionFactory);
@@ -218,9 +227,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 		} catch (Exception e) {
 			logger.error("Failed to get all from " + c.getName(), e);
 			e.printStackTrace();
-		} finally {
-			closeSession();
-		}
+		} 
 		return list;
 	}
 
@@ -257,8 +264,12 @@ public class DataAccessManagerImpl implements DataAccessManager {
 		if (sessionFactory == null) {
 			logger.warn("\nFailed to return Session because SessionFactory is null.");
 		} else {
-			logger.info("open session");
-			session = sessionFactory.openSession();
+			if(session == null || !session.isOpen()) {
+				logger.info("open session");
+				session = sessionFactory.openSession();
+			} else {
+				logger.info("use current session");
+			}
 		}
 		return session;
 	}

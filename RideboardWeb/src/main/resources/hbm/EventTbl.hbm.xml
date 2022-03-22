@@ -2,14 +2,12 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.rideboard.data.model.RacerModel" table="RACER_TBL">
-		<id name="racerId" column="RACERID" />
-		<property name="firstName" column="FIRST_NAME" />
-		<property name="midName" column="MID_NAME" />
-		<property name="lastName" column="LAST_NAME" />
-		<property name="sin" column="SIN" />
-		<property name="ranking" column="RANKING" />
+	<class name="com.rideboard.data.model.EventModel" table="EVENT_TBL">
+		<id name="eventId" column="EVENTID" />
+		<property name="requestId" column="REQUESTID" />
 		<property name="userId" column="USERID" />
+		<property name="raceId" column="RACEID" />
+		<property name="status" column="STATUS_CD" />
 		
 		<property name="cre_dt" column="CRE_DT" />
 		<property name="last_upd_dt" column="LAST_UPD_DT" />

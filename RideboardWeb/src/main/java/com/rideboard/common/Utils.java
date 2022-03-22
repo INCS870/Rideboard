@@ -69,9 +69,9 @@ public class Utils {
 				String fieldName = field.getName();
 				if(fieldName.equals("Class")) continue;
 				String qualifiedName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-				inputMethod = input.getClass().getMethod("get" + qualifiedName, null);
+				inputMethod = input.getClass().getMethod("get" + qualifiedName, field.getClass());
 				outputMethod = output.getClass().getMethod("set" + qualifiedName, field.getClass());
-				outputMethod.invoke(output, inputMethod.invoke(input, null));
+				outputMethod.invoke(output, inputMethod.invoke(input));
 			}
 		}
 	}

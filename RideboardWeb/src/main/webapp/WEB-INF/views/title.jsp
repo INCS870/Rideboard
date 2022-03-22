@@ -6,8 +6,8 @@
 	</form:form>
 	<script>
 		function logout() {
-			showLoading();
 			if (confirm('Are you sure to logout Rideboard ?')) {
+				showLoading();
 				document.getElementById("frmLogout").submit();
 			}
 		}

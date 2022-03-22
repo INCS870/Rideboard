@@ -8,7 +8,8 @@
 		<property name="userName" column="USERNAME" />
 		<property name="password" column="PASSWORD" />
 		<property name="attempt_count" column="ATTEMPT_COUNT" />
-		<property name="status" column="STATUS" />
+		<property name="status" column="STATUS_CD" />
+		<property name="email" column="EMAIL" />
 		<property name="last_attempt_dt" column="LAST_ATTEMPT_DT" />
 		
 		<property name="cre_dt" column="CRE_DT" />

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.rideboard.data.model.RequestModel" table="REQUEST_TBL">
+		<id name="requestId" column="REQUESTID" />
+		<property name="userId" column="USERID" />
+		<property name="title" column="REQUEST_TITLE" />
+		<property name="details" column="REQUEST_DETAILS" />
+		<property name="type" column="TYPE_CD" />
+		<property name="income" column="EXP_INCOME" />
+		<property name="budget" column="BUDGET" />
+		<property name="ranking" column="EXP_RANKING" />
+		<property name="fromDt" column="FROM_DT" />
+		<property name="toDt" column="TO_DT" />
+		
+		<property name="cre_dt" column="CRE_DT" />
+		<property name="last_upd_dt" column="LAST_UPD_DT" />
+		<property name="cre_user" column="CRE_USER" />
+		<property name="last_upd_user" column="LAST_UPD_USER" />	
+	</class>
+</hibernate-mapping>

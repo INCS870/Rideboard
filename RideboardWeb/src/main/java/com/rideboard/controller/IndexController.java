@@ -11,12 +11,11 @@ public class IndexController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView init(Model model) throws Exception {
-		ModelAndView view = new ModelAndView();
 		model.addAttribute("host_ip",  java.net.InetAddress.getLocalHost());
 		Object userObj = com.rideboard.common.Utils.getSession("security.userid");
 		if(userObj != null) {
-			return new ModelAndView("main");
+			return new ModelAndView("redirect:/main");
 		}
-		return new ModelAndView("login");//"login";
+		return new ModelAndView("login");
 	}
 }

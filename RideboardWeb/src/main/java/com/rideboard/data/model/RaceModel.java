@@ -5,14 +5,17 @@ import java.util.Date;
 public class RaceModel extends BaseModel {
 	private int raceId = 0;
 	private String title = null;
-	private String desc = null;
-	private String location = null;
+	private String section = null;
+	private String locationCode = null;
 	private String type = null;
-	private int stage = 0;
-	private String dateStr = null;
+	private int companyId = 0;
+	private int round = 0;
 	private Date fromDt = null;
 	private Date toDt = null;	
-	private double amount = 0.0;
+	private double prizeFirst = 0.0;
+	private double prizeSecond = 0.0;
+	private double prizeThird = 0.0;
+	private double prizeGeneral = 0.0;
 	
 	public int getRaceId() {
 		return raceId;
@@ -26,17 +29,17 @@ public class RaceModel extends BaseModel {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getDesc() {
-		return desc;
+	public String getSection() {
+		return section;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setSection(String section) {
+		this.section = section;
 	}
-	public String getLocation() {
-		return location;
+	public String getLocationCode() {
+		return locationCode;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+	public void setLocationCode(String locationCode) {
+		this.locationCode = locationCode;
 	}
 	public String getType() {
 		return type;
@@ -44,17 +47,17 @@ public class RaceModel extends BaseModel {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public double getAmount() {
-		return amount;
+	public int getCompanyId() {
+		return companyId;
 	}
-	public void setAmount(double amount) {
-		this.amount = amount;
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
 	}
-	public String getDateStr() {
-		return dateStr;
+	public int getRound() {
+		return round;
 	}
-	public void setDateStr(String dateStr) {
-		this.dateStr = dateStr;
+	public void setRound(int round) {
+		this.round = round;
 	}
 	public Date getFromDt() {
 		return fromDt;
@@ -68,10 +71,28 @@ public class RaceModel extends BaseModel {
 	public void setToDt(Date toDt) {
 		this.toDt = toDt;
 	}
-	public int getStage() {
-		return stage;
+	public double getPrizeFirst() {
+		return prizeFirst;
 	}
-	public void setStage(int stage) {
-		this.stage = stage;
+	public void setPrizeFirst(double prizeFirst) {
+		this.prizeFirst = prizeFirst;
+	}
+	public double getPrizeSecond() {
+		return prizeSecond;
+	}
+	public void setPrizeSecond(double prizeSecond) {
+		this.prizeSecond = prizeSecond;
+	}
+	public double getPrizeThird() {
+		return prizeThird;
+	}
+	public void setPrizeThird(double prizeThird) {
+		this.prizeThird = prizeThird;
+	}
+	public double getPrizeGeneral() {
+		return prizeGeneral;
+	}
+	public void setPrizeGeneral(double prizeGeneral) {
+		this.prizeGeneral = prizeGeneral;
 	}
 }

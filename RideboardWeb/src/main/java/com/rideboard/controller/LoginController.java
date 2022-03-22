@@ -1,7 +1,5 @@
 package com.rideboard.controller;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +36,7 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView login(Model model, @ModelAttribute("loginBean") LoginBean loginBean) throws Exception {
-		ModelAndView view = new ModelAndView();
+		ModelAndView modelView = null;
 		model.addAttribute("host_ip", java.net.InetAddress.getLocalHost());
 		
 		if (loginBean != null) {
@@ -52,9 +50,7 @@ public class LoginController {
 				return new ModelAndView("login");
 			}
 
-			List<UserModel> users = dataAccessManager.equal(UserModel.class, "userName", userName);
-			logger.debug("user list : " + users);
-			UserModel user = users == null || users.isEmpty() ? null : users.get(0);
+			UserModel user = dataAccessManager.equalOne(UserModel.class, "userName", userName);
 			logger.debug("found user ? " + user);
 			if (user == null) {
 				model.addAttribute("error", "Login failed, username or password is incorrect. ");
@@ -98,9 +94,13 @@ public class LoginController {
 					dataAccessManager.update(user);
 				}
 				model.addAttribute("error", "Login failed, username or password is incorrect. ");
-				return new ModelAndView("login");
-			} 
-			return new ModelAndView("redirect:/main");
+				modelView = new ModelAndView("login");
+			} else {
+				modelView = new ModelAndView("redirect:/main");
+			}
+			
+			dataAccessManager.closeSession();
+			return modelView;
 		}
 		model.addAttribute("error", "Unknown Issue");
 		return new ModelAndView("login");

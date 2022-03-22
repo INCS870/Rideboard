@@ -6,6 +6,7 @@ public class UserModel extends BaseModel {
 	private String userName = null;
 	private String password = null;
 	private String photo_path = null;
+	private String email = null;
 	private int attempt_count = 0;
 	private String status = null;
 	private java.util.Date last_attempt_dt = null;
@@ -82,5 +83,13 @@ public class UserModel extends BaseModel {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

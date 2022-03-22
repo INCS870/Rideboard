@@ -13,6 +13,30 @@ public class EntityInfoBean implements java.io.Serializable {
 		this.role = role;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getMidName() {
+		return midName;
+	}
+
+	public void setMidName(String midName) {
+		this.midName = midName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 	public String getName() {
 		if ("racer".equals(role)) {
 			return firstName + (midName == null ? "" : " " + midName) + " " + lastName;

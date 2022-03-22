@@ -1,4 +1,4 @@
-<div id="divProfile" align="center" class="profile">
+<div id="divProfile" class="profile">
 	<table border="0">
 		<tr>
 			<td colspan="2">
@@ -29,6 +29,14 @@
 			</td>
 			<td>
 			${userObj.roleName}
+			</td>
+		</tr>	
+		<tr>
+			<td>
+			Email:
+			</td>
+			<td>
+			${userObj.email}
 			</td>
 		</tr>		
 		<tr>
