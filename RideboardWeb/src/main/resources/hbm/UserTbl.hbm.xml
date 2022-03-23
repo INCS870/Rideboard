@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.rideboard.data.model.UserModel" table="USER_TBL">
+		<id name="userId" column="USERID" />
+		<property name="roleId" column="ROLEID" />
+		<property name="userName" column="USERNAME" />
+		<property name="password" column="PASSWORD" />
+		<property name="attempt_count" column="ATTEMPT_COUNT" />
+		<property name="status" column="STATUS_CD" />
+		<property name="email" column="EMAIL" />
+		<property name="last_attempt_dt" column="LAST_ATTEMPT_DT" />
+		
+		<property name="cre_dt" column="CRE_DT" />
+		<property name="last_upd_dt" column="LAST_UPD_DT" />
+		<property name="cre_user" column="CRE_USER" />
+		<property name="last_upd_user" column="LAST_UPD_USER" />	
+	</class>
+</hibernate-mapping>
