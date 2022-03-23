@@ -20,6 +20,7 @@ RUN gunzip wildfly-23.0.2.Final.tar.gz | tar xf -
 RUN gunzip -dc oracle.tar.gz | tar xf -
 RUN cp Rideboard.war /home/opc/wildfly-23.0.2.Final/standalone/deployments/
 RUN cp standalone.xml /home/opc/wildfly-23.0.2.Final/standalone/configuration/
+RUN cp persistenceConfig.properties /home/opc/wildfly-23.0.2.Final/standalone/configuration/
 RUN mv oracle $HOME/wildfly-23.0.2.Final/modules/system/layers/base/com/
 RUN ln -sf wildfly-23.0.2.Final wildfly
 RUN rm wildfly-23.0.2.Final.tar.gz
