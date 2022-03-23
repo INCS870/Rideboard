@@ -28,15 +28,15 @@
 	</beans:bean>
 
 	<!-- Hibernate Datasource -->
-	<beans:bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<beans:property name="driverClassName"
-			value="oracle.jdbc.driver.OracleDriver" />
+	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url" value="jdbc:oracle:thin:@rbdb_high?TNS_ADMIN=D:/Workspaces/Rideboard/WalletRBDB/" />
 <!-- 		<beans:property name="url" value="jdbc:oracle:thin:@rbdb_high?TNS_ADMIN=/home/opc/WalletRBDB/" /> -->
 		<beans:property name="username" value="RBRW" />
 		<beans:property name="password" value="Password1234" />
 	</beans:bean>
+	
+<!-- 	<beans:bean id="dataSource" class="com.rideboard.data.conf.PersistenceDataSourceConfig" /> -->
 
 	<beans:bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"

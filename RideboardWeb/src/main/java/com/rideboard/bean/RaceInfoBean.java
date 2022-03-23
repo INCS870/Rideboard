@@ -1,12 +1,20 @@
 package com.rideboard.bean;
 
-public class RaceInfoBean {
+import java.util.Date;
+
+import com.rideboard.common.Utils;
+
+public class RaceInfoBean implements java.io.Serializable{
+	private static final long serialVersionUID = -4726010725024254075L;
+	
 	private int raceId = 0;
 	private String title = null;
 	private String desc = null;
 	private String location = null;
 	private String type = null;
 	private int stage = 0;
+	private Date fromDt = null;
+	private Date toDt = null;	
 	private String dateStr = null;
 	private double amount = 0.0;
 	
@@ -47,7 +55,7 @@ public class RaceInfoBean {
 		this.stage = stage;
 	}
 	public String getDateStr() {
-		return dateStr;
+		return dateStr == null ? Utils.formatDate(fromDt) : dateStr;
 	}
 	public void setDateStr(String dateStr) {
 		this.dateStr = dateStr;
@@ -57,5 +65,17 @@ public class RaceInfoBean {
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+	public Date getFromDt() {
+		return fromDt;
+	}
+	public void setFromDt(Date fromDt) {
+		this.fromDt = fromDt;
+	}
+	public Date getToDt() {
+		return toDt;
+	}
+	public void setToDt(Date toDt) {
+		this.toDt = toDt;
 	}
 }
