@@ -33,11 +33,11 @@
 								<li class="dropdown__list-item"><span
 									class="dropdown__icon"><i class="far fa-user"></i></span> 
 <!-- 									<span class="dropdown__title">my profile</span> -->
-									<span class="dropdown__title" onclick="showProfile()">My profile</span>
+									<span id="spanProfile" class="dropdown__title" onclick="showProfile()">My profile</span>
 								</li>
 								<li class="dropdown__list-item"><span
 									class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
-									<span class="dropdown__title" onclick="logout()">Log out</span>
+									<span id="spanLogout" class="dropdown__title" onclick="logout()">Log out</span>
 								</li>
 							</ul>
 						</div>
