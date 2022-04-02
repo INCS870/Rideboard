@@ -13,10 +13,32 @@
 		href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
 		color="#111" />
 	
-	<link rel="stylesheet" href="resources/css/bootstrap.min.css">
-	<link rel="stylesheet" href="resources/css/site.css">
-	<link rel="stylesheet" href="resources/css/site.ext.css">
-	<link rel="stylesheet" href="resources/css/main.css">
+	<link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="resources/css/base/accordion.css" />
+	<link rel="stylesheet" href="resources/css/base/all.css" />
+	<link rel="stylesheet" href="resources/css/base/autocomplete.css" />
+	<link rel="stylesheet" href="resources/css/base/base.css" />
+	<link rel="stylesheet" href="resources/css/base/button.css" />
+	<link rel="stylesheet" href="resources/css/base/core.css" />
+	<link rel="stylesheet" href="resources/css/base/datepicker.css" />
+	<link rel="stylesheet" href="resources/css/base/dialog.css" />
+	<link rel="stylesheet" href="resources/css/base/draggable.css" />
+	<link rel="stylesheet" href="resources/css/base/jquery-ui.css" />
+	<link rel="stylesheet" href="resources/css/base/jquery-ui.min.css" />
+	<link rel="stylesheet" href="resources/css/base/menu.css" />
+	<link rel="stylesheet" href="resources/css/base/progressbar.css" />
+	<link rel="stylesheet" href="resources/css/base/resizable.css" />
+	<link rel="stylesheet" href="resources/css/base/selectable.css" />
+	<link rel="stylesheet" href="resources/css/base/selectmenu.css" />
+	<link rel="stylesheet" href="resources/css/base/slider.css" />
+	<link rel="stylesheet" href="resources/css/base/sortable.css" />
+	<link rel="stylesheet" href="resources/css/base/spinner.css" />
+	<link rel="stylesheet" href="resources/css/base/tabs.css" />
+	<link rel="stylesheet" href="resources/css/base/theme.css" />
+	<link rel="stylesheet" href="resources/css/base/tooltip.css" />
+	<link rel="stylesheet" href="resources/css/site.css" />
+	<link rel="stylesheet" href="resources/css/site.ext.css" />
+	<link rel="stylesheet" href="resources/css/main.css" />
 	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
 		rel="stylesheet">
@@ -26,19 +48,25 @@
 		crossorigin="anonymous">
 	<link rel="shortcut icon" type="image/png" href="#">
 	
-	<script type="text/javascript"
-		src="resources/scripts/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript"
-		src="resources/scripts/jquery-ui-1.12.1.min.js"></script>
+	<script type="text/javascript" src="resources/scripts/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="resources/scripts/jquery.unobtrusive-ajax.min.js"></script>
+	<script type="text/javascript" src="resources/scripts/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="resources/scripts/jquery.validate.unobtrusive.min.js"></script>
+	<script type="text/javascript" src="resources/scripts/jquery.validate.date.js"></script>
+	<script type="text/javascript" src="resources/scripts/jquery-ui-1.12.1.min.js"></script>
+	<script type="text/javascript" src="resources/scripts/modernizr-2.8.3.js"></script>
+	<script type="text/javascript" src="resources/scripts/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="resources/scripts/bootstrap.min.js"></script>
-		<script type="text/javascript" src="resources/scripts/common.js"></script>
+	<script type="text/javascript" src="resources/scripts/respond.min.js"></script>
+	<script type="text/javascript" src="resources/scripts/common.js"></script>
 	
 	<script>
-	  window.console = window.console || function(t) {};
+		window.console = window.console || function(t) {
+		};
 	</script>
 	<script>
-	  if (document.location.search.match(/type=embed/gi)) {
-	    window.parent.postMessage("resize", "*");
-	  }
+		if (document.location.search.match(/type=embed/gi)) {
+			window.parent.postMessage("resize", "*");
+		}
 	</script>
 </head>

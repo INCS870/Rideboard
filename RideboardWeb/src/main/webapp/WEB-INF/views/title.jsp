@@ -4,6 +4,8 @@
 <header>
 	<form:form id="frmLogout" name="frmLogout" action="logout" method="POST">
 	</form:form>
+	<form:form id="frmProfile" name="frmProfile" action="profile" method="GET">
+	</form:form>
 	<script>
 		function logout() {
 			if (confirm('Are you sure to logout Rideboard ?')) {
@@ -12,7 +14,13 @@
 			}
 		}
 		function showProfile() {
-			openProfileDiv();
+			//openProfileDiv();
+			var frm = $("form#frmProfile");
+		    openAjaxDialog(frm.attr("action"), "get", "ProfilePopupDiv", "User Profile", 410, 450, true, frm.attr("id"), function () {
+		        $('div#ProfilePopupDiv').on('dialogclose', function (event) {
+		            $(this).detach();
+		        });
+		    });	
 		}
 	</script>
 	<table>
@@ -46,7 +54,7 @@
 		</tr>
 	</table>
 </header>
-
+<div id="errorDiv" style="text-align: center; color: red; background-color: #FFFFFF">${error}</div>
 <div id="loadingPage" class="popupLoading">
     <div id="innerLoadingDiv" class="popupLoadingDiv">
         <img src="resources/images/loading1.gif" />

@@ -11,10 +11,14 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class Utils {
-	private final static java.text.SimpleDateFormat FORMATTER = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	
+	private final static java.text.SimpleDateFormat DATE_FORMAT = new java.text.SimpleDateFormat("yyyy-MM-dd");
+	private final static java.text.SimpleDateFormat DATETIME_FORMAT = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 	public static String formatDate(java.util.Date date) {
-		return FORMATTER.format(date);
+		return DATE_FORMAT.format(date);
+	}
+	public static String formatDateTime(java.util.Date date) {
+		return DATETIME_FORMAT.format(date);
 	}
 	
 	public static String hash(String plain) {

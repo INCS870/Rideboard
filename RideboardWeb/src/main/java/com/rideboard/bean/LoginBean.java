@@ -10,6 +10,7 @@ public class LoginBean implements java.io.Serializable {
 	private String roleName;
 	private String lastLoginDate;
 	private String password;
+	private String newPassword;
 
 	public String getUserName() {
 		return userName;
@@ -73,5 +74,13 @@ public class LoginBean implements java.io.Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
 	}
 }
