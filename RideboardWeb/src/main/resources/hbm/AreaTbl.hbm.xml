@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.rideboard.data.model.AreaModel" table="AREA_TBL">
+		<id name="areaId" column="AREAID" />
+		<property name="areaCode" column="AREA_CD" />
+		<property name="areaName" column="AREA_NAME" />
+		<property name="countryCode" column="COUNTRY_CD" />
+		<property name="cre_dt" column="CRE_DT" />
+		<property name="last_upd_dt" column="LAST_UPD_DT" />
+		<property name="cre_user" column="CRE_USER" />
+		<property name="last_upd_user" column="LAST_UPD_USER" />	
+	</class>
+</hibernate-mapping>
