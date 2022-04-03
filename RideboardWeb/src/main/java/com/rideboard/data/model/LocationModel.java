@@ -5,6 +5,7 @@ public class LocationModel extends BaseModel {
 	private String locationCode = null;
 	private String locationName = null;
 	private String countryCode = null;
+	private String areaCode = null;
 	
 	public int getLocationId() {
 		return locationId;
@@ -29,5 +30,11 @@ public class LocationModel extends BaseModel {
 	}
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
+	}
+	public String getAreaCode() {
+		return areaCode;
+	}
+	public void setAreaCode(String areaCode) {
+		this.areaCode = areaCode;
 	}
 }

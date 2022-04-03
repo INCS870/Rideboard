@@ -38,6 +38,7 @@
 		</beans:property>
 		<beans:property name="mappingResources">
 			<beans:list>
+				<beans:value>hbm/AreaTbl.hbm.xml</beans:value>
 				<beans:value>hbm/CompanyTbl.hbm.xml</beans:value>
 				<beans:value>hbm/CountryTbl.hbm.xml</beans:value>
 				<beans:value>hbm/EventTbl.hbm.xml</beans:value>

@@ -10,9 +10,8 @@
 	<main> 
 		<form:form name="submitForm" action="login" method="POST">
 			<div align="center">
-				<br />
-				<div style="color: red; background-color: #FFFFFF">${error}</div>
-				<br />
+				<br/>
+				<br/>
 				<table style="background-color: #EEEEEE">
 					<tr>
 						<td>&nbsp;</td>
