@@ -235,6 +235,7 @@ public class CryptoUtil {
 	@SuppressWarnings("static-access")
 	public static void main(String args[]) throws Exception {
 		System.out.println(" HEX AES: " + encryptAES(""));
+		System.out.println(" ORG AES: " + decryptAES(""));
 	}
 	
 	private final static String AES_KEY = "09565EFD54A1862A9300CF99FC8C995392FC1279B31BC67B7CD00B566EE15799"; 
