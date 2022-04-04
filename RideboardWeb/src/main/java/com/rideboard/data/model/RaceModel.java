@@ -7,6 +7,7 @@ public class RaceModel extends BaseModel {
 	private String title = null;
 	private String section = null;
 	private String locationCode = null;
+	private String countryCode = null;
 	private String type = null;
 	private int companyId = 0;
 	private int round = 0;
@@ -94,5 +95,11 @@ public class RaceModel extends BaseModel {
 	}
 	public void setPrizeGeneral(double prizeGeneral) {
 		this.prizeGeneral = prizeGeneral;
+	}
+	public String getCountryCode() {
+		return countryCode;
+	}
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 }
