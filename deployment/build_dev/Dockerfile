@@ -7,7 +7,7 @@
 #  ver 0.3	Wilson	Kubernetes version
 #
 FROM jboss/wildfly 
-WORKDIR /Volumes/Document/Dev/Rideboard/build/
+WORKDIR /Volumes/Document/Dev/Rideboard/build_dev/
 COPY . .
 
 RUN cp Rideboard.war /opt/jboss/wildfly/standalone/deployments/
