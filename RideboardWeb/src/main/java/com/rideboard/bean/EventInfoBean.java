@@ -63,4 +63,8 @@ public class EventInfoBean implements java.io.Serializable {
 	public void setToDt(Date toDt) {
 		this.toDt = toDt;
 	}
+
+	public String toString() {
+		return getDateStr() + " " + getLocation();
+	}
 }
