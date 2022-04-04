@@ -13,7 +13,7 @@ then
 	if [[ -z "$pids" ]]
 	then
 		echo 'Starting Wildfly instance ...'
-		/home/opc/wildfly/bin/standalone.sh -c standalone.xml -b 0.0.0.0 -bmanagement 127.0.0.1 -Djboss.node.name=node1 &
+		/opt/jboss/wildfly/bin/standalone.sh -c standalone.xml -b 0.0.0.0 -bmanagement 127.0.0.1 -Djboss.node.name=node1 &
 	else
 		echo 'Wildfly is already running'
 	fi
