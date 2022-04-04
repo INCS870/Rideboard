@@ -11,10 +11,14 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class Utils {
-	private final static java.text.SimpleDateFormat FORMATTER = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	
+	private final static java.text.SimpleDateFormat DATE_FORMAT = new java.text.SimpleDateFormat("yyyy-MM-dd");
+	private final static java.text.SimpleDateFormat DATETIME_FORMAT = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 	public static String formatDate(java.util.Date date) {
-		return FORMATTER.format(date);
+		return DATE_FORMAT.format(date);
+	}
+	public static String formatDateTime(java.util.Date date) {
+		return DATETIME_FORMAT.format(date);
 	}
 	
 	public static String hash(String plain) {
@@ -58,22 +62,6 @@ public class Utils {
 			session.removeAttribute(key);
 		}
 	}
-	
-//	public static <T,G> void autoMap(G input, T output) throws Exception {
-//		java.lang.reflect.Field[] fields = null;
-//		Method inputMethod = null, outputMethod = null;
-//		if(input != null && output != null) {
-//			fields = output.getClass().getFields();
-//			for(java.lang.reflect.Field field:fields) {
-//				String fieldName = field.getName();
-//				if(fieldName.equals("Class")) continue;
-//				String qualifiedName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-//				inputMethod = input.getClass().getMethod("get" + qualifiedName, field.getClass());
-//				outputMethod = output.getClass().getMethod("set" + qualifiedName, field.getClass());
-//				outputMethod.invoke(output, inputMethod.invoke(input));
-//			}
-//		}
-//	}
 
 	public static <T,G> void autoMap(G input, T output) throws Exception {
 		Method[] inputMethods = null;
