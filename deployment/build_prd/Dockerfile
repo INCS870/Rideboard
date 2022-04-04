@@ -15,8 +15,8 @@ RUN cp standalone.xml /opt/jboss/wildfly/standalone/configuration/
 RUN cp persistenceConfig.properties /opt/jboss/wildfly/standalone/configuration/
 RUN gunzip -dc oracle.tar.gz |tar xf -
 RUN mv oracle /opt/jboss/wildfly/modules/system/layers/base/com/
-RUN gunzip -dc Wallet_ATPAS.tar.gz |tar xf -
-RUN mv Wallet_ATPAS /opt/jboss/
+RUN gunzip -dc Wallet_RBDBPRD.tar.gz |tar xf -
+RUN mv Wallet_RBDBPRD /opt/jboss/
 RUN cp run_wildfly.sh /opt/jboss/
 RUN chmod 711 /opt/jboss/run_wildfly.sh
 CMD ["/opt/jboss/run_wildfly.sh", "start"]
