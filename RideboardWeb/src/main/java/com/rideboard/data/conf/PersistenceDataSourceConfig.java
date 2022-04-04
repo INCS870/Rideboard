@@ -17,11 +17,11 @@ public class PersistenceDataSourceConfig extends org.springframework.jdbc.dataso
 			FileInputStream fis = new FileInputStream(file);
 			properties.load(fis);
 			for(String key: properties.stringPropertyNames()) {
-				logger.debug("prop " + key + " = " + properties.getProperty(key));
+				logger.info("prop " + key + " = " + properties.getProperty(key));
 			}
 			this.setUrl(properties.getProperty("url"));
 			this.setUsername(properties.getProperty("username"));
-			this.setPassword(properties.getProperty("password"));
+			this.setPassword(com.rideboard.common.CryptoUtil.decryptAES(properties.getProperty("password")));
 			this.setDriverClassName(properties.getProperty("driverClassName"));
 		} catch (Exception e) {
 			e.printStackTrace();
