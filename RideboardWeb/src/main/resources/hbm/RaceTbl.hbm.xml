@@ -7,6 +7,7 @@
 		<property name="title" column="TITLE" />
 		<property name="section" column="SECTION" />
 		<property name="locationCode" column="LOCATION_CD" />
+		<property name="countryCode" column="COUNTRY_CD" />
 		<property name="type" column="TYPE_CD" />
 		<property name="companyId" column="COMPANYID" />
 		<property name="round" column="ROUND" />

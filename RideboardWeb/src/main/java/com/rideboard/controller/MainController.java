@@ -231,10 +231,13 @@ public class MainController {
 					if (race != null) {
 						Utils.autoMap(race, bean);
 						if (race.getLocationCode() != null) {
-							LocationModel loc = dataAccessManager.equalOne(LocationModel.class, "locationCode",
+							java.util.List<LocationModel> locs = dataAccessManager.equalMore(LocationModel.class, "locationCode",
 									race.getLocationCode());
-							if (loc != null) {
-								bean.setLocation(loc.getLocationName());
+							if (locs != null && !locs.isEmpty()) {
+								for(LocationModel loc:locs) {
+									if(loc.getCountryCode().equals(race.getCountryCode()))
+									bean.setLocation(loc.getLocationName());
+								}
 							}
 						}
 						infos.add(bean);
@@ -255,10 +258,13 @@ public class MainController {
 				RaceInfoBean bean = new RaceInfoBean();
 				Utils.autoMap(model, bean);
 				if (model.getLocationCode() != null) {
-					LocationModel loc = dataAccessManager.equalOne(LocationModel.class, "locationCode",
+					java.util.List<LocationModel> locs = dataAccessManager.equalMore(LocationModel.class, "locationCode",
 							model.getLocationCode());
-					if (loc != null) {
-						bean.setLocation(loc.getLocationName());
+					if (locs != null && !locs.isEmpty()) {
+						for(LocationModel loc:locs) {
+							if(loc.getCountryCode().equals(model.getCountryCode()))
+							bean.setLocation(loc.getLocationName());
+						}
 					}
 				}
 				beans.add(bean);
