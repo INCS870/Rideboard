@@ -6,7 +6,7 @@ public class EventModel extends BaseModel {
 	private int eventId = 0;
 	private int userId = 0;
 	private int requestId = 0;
-	private int raceId = 0;
+	private Integer raceId = null;
 	private String status = null;
 	private Date fromDt = null;
 	private Date toDt = null;
@@ -39,11 +39,11 @@ public class EventModel extends BaseModel {
 		this.toDt = toDt;
 	}
 
-	public int getRaceId() {
+	public Integer getRaceId() {
 		return raceId;
 	}
 
-	public void setRaceId(int raceId) {
+	public void setRaceId(Integer raceId) {
 		this.raceId = raceId;
 	}
 

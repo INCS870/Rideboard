@@ -215,7 +215,7 @@ public class MainController {
 		java.util.List<EventInfoBean> infos = null;
 		java.util.List<EventModel> list = dataAccessManager.equalMore(EventModel.class, "userId", userId);
 		if (list != null && !list.isEmpty()) {
-			logger.debug("getEvents list " + list.size());
+			logger.info("getEvents list " + list.size());
 			infos = new java.util.ArrayList<EventInfoBean>(list.size());
 			for (EventModel model : list) {
 				if (model == null)
@@ -223,11 +223,12 @@ public class MainController {
 				EventInfoBean bean = new EventInfoBean();
 				Utils.autoMap(model, bean);
 				RequestModel req = dataAccessManager.equalOne(RequestModel.class, "requestId", model.getRequestId());
-				logger.debug("getEvents req " + req);
+				logger.info("getEvents req " + req);
 				if (req != null)
 					Utils.autoMap(req, bean);
-				if (model.getRaceId() > 0) {
+				if (model.getRaceId() != null && model.getRaceId() > 0) {
 					RaceModel race = dataAccessManager.equalOne(RaceModel.class, "raceId", model.getRaceId());
+					logger.info("getEvents race " + race);
 					if (race != null) {
 						Utils.autoMap(race, bean);
 						if (race.getLocationCode() != null) {
