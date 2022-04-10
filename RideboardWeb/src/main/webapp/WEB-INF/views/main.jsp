@@ -185,8 +185,8 @@ function toggleClass(el, className) {
 
 // User avatar dropdown functionality
 function setUserDropdownListener() {
-  const userAvatar = $('.header__avatar');
-
+  const userAvatar = $('[class^=header__avatar]');
+//  const userAvatar = $('.header__avatar');
   userAvatar.on('click', function (e) {
     const dropdown = $(this).children('.dropdown');
     toggleClass(dropdown, 'dropdown--active');

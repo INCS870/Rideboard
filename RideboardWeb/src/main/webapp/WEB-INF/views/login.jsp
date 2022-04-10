@@ -18,11 +18,11 @@
 					</tr>
 					<tr>
 						<td>User Name</td>
-						<td><input type="text" name="userName" /></td>
+						<td><input type="text" name="userName" autocomplete="false" /></td>
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td><input type="password" name="password" /></td>
+						<td><input type="password" name="password" autocomplete="false" /></td>
 					</tr>
 					<tr>
 						<td colspan="2">&nbsp;</td>

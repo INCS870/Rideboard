@@ -87,8 +87,7 @@ a {
 }
 
 .header__avatar {
-	background-image:
-		url("https://gravatar.com/avatar/4b6f76d3a9b34eefcfa4a7f297bf54bd?s=400&d=mp&r=x");
+	background-image: url("../images/avatars.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border-radius: 50%;
@@ -100,7 +99,33 @@ a {
 	cursor: pointer;
 }
 
-.header__avatar:after {
+.header__avatar_male {
+	background-image: url("../images/avatar_ml.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	position: relative;
+	margin: 0 26px;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+
+.header__avatar_female {
+	background-image: url("../images/avatar_fe.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	position: relative;
+	margin: 0 26px;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+
+.header__avatar .header__avatar_male .header__avatar_female:after {
 	position: absolute;
 	content: "";
 	width: 6px;
@@ -786,7 +811,7 @@ a {
 	.header__search {
 		margin-left: 20px;
 	}
-	.header__avatar {
+	.header__avatar .header__avatar_male .header__avatar_female {
 		width: 40px;
 		height: 40px;
 	}

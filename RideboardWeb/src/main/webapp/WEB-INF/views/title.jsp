@@ -35,7 +35,8 @@
 			<td width="90%"><font size="4">Integrated social platform
 					for race industry</font></td>
 			<td width="5%" align="right"><c:if test="${userProfileId!=null}">
-					<div class="header__avatar">
+					<table><tr><td>${userName}</td><td>
+					<div class="header__avatar_male">
 						<div class="dropdown">
 							<ul class="dropdown__list">
 								<li class="dropdown__list-item"><span
@@ -50,6 +51,7 @@
 							</ul>
 						</div>
 					</div>
+					</td></tr></table>
 				</c:if></td>
 		</tr>
 	</table>

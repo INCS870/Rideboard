@@ -65,6 +65,6 @@ public class EventInfoBean implements java.io.Serializable {
 	}
 
 	public String toString() {
-		return getDateStr() + " " + getLocation();
+		return getDateStr() + "<br/>" + getLocation();
 	}
 }

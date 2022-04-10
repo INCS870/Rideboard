@@ -157,6 +157,7 @@ public class MainController {
 		Object userName = com.rideboard.common.Utils.getSession("security.user");
 		model.addAttribute("host_ip", java.net.InetAddress.getLocalHost());
 		model.addAttribute("userProfileId", userId);
+		model.addAttribute("userName", userName);
 
 		if (userId == null) {
 			model.addAttribute("error", "Invalid session or session is timeout. ");
