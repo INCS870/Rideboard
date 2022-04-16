@@ -93,7 +93,7 @@ public class LoginController {
 						user.setStatus("L");
 					dataAccessManager.update(user);
 				}
-				model.addAttribute("error", "Login failed, username or password is incorrect. ");
+				//model.addAttribute("error", "Login failed, username or password is incorrect. ");
 				modelView = new ModelAndView("login");
 			} else {
 				modelView = new ModelAndView("redirect:/main");
