@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="com.rideboard.data.model.RaceModel" table="RACE_TBL">
 		<id name="raceId" column="RACEID" />
 		<property name="title" column="TITLE" />
 		<property name="section" column="SECTION" />
 		<property name="locationCode" column="LOCATION_CD" />
+		<property name="countryCode" column="COUNTRY_CD" />
 		<property name="type" column="TYPE_CD" />
 		<property name="companyId" column="COMPANYID" />
 		<property name="round" column="ROUND" />
