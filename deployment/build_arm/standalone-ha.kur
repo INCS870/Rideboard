@@ -437,11 +437,14 @@
                 </stack>
                 <stack name="tcp">
                     <transport type="TCP" socket-binding="jgroups-tcp"/>
-					<protocol type="org.jgroups.protocols.kubernetes.KUBE_PING" module="org.jgroups.kubernetes">
-						<property name="namespace">default</property>
-						<property name="masterHost">${env.KUBERNETES_SERVICE_HOST}</property>
-						<property name="masterPort">${env.KUBERNETES_SERVICE_PORT}</property>
-					</protocol>
+			<socket-protocol type="MPING" socket-binding="jgroups-mping" />
+			<protocol type="org.jgroups.protocols.kubernetes.KUBE_PING" module="org.jgroups.kubernetes">
+				<property name="namespace">default</property>
+<!--
+				<property name="masterHost">${env.KUBERNETES_SERVICE_HOST}</property>
+				<property name="masterPort">${env.KUBERNETES_SERVICE_PORT}</property>
+-->
+			</protocol>
                     <protocol type="MERGE3"/>
                     <socket-protocol type="FD_SOCK" socket-binding="jgroups-tcp-fd"/>
                     <protocol type="FD_ALL"/>
@@ -525,12 +528,13 @@
                 <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
                 <https-listener name="https" socket-binding="https" ssl-context="applicationSSC" enable-http2="true"/>
                 <host name="default-host" alias="localhost">
-                    <location name="/" handler="welcome-content"/>
+                    <!--<location name="/" handler="welcome-content"/>-->
                     <http-invoker http-authentication-factory="application-http-authentication"/>
                 </host>
             </server>
             <servlet-container name="default">
                 <jsp-config/>
+		<session-cookie http-only="true" secure="true"/>
                 <websockets/>
             </servlet-container>
             <handlers>
@@ -567,7 +571,7 @@
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" port="${jboss.http.port:5000}"/>
         <socket-binding name="https" port="${jboss.https.port:5443}"/>
-        <socket-binding name="jgroups-mping" interface="private" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45700"/>
+        <socket-binding name="jgroups-mping" interface="private" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45700"/> 
         <socket-binding name="jgroups-tcp" interface="private" port="7600"/>
         <socket-binding name="jgroups-tcp-fd" interface="private" port="57600"/>
         <socket-binding name="jgroups-udp" interface="private" port="55200" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45688"/>
