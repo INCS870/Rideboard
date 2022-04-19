@@ -51,12 +51,13 @@ public class LoginController {
 			}
 
 			UserModel user = dataAccessManager.equalOne(UserModel.class, "userName", userName);
-			logger.debug("found user ? " + user);
+			logger.info("found user ? " + user);
 			if (user == null) {
 				model.addAttribute("error", "Login failed, username or password is incorrect. ");
-				loginFailed = true;
+				return new ModelAndView("login");
 			}
 			if (user != null && user.getStatus().equals("L")) {
+				logger.info("found user but too many attempted.");
 				model.addAttribute("error", "Too many login attempted for this user, account is locked.");
 				loginFailed = true;
 			}
@@ -91,9 +92,9 @@ public class LoginController {
 					user.setAttempt_count(cnt);
 					if (cnt >= 5)
 						user.setStatus("L");
+					else model.addAttribute("error", "Login failed, username or password is incorrect. ");
 					dataAccessManager.update(user);
 				}
-				model.addAttribute("error", "Login failed, username or password is incorrect. ");
 				modelView = new ModelAndView("login");
 			} else {
 				modelView = new ModelAndView("redirect:/main");
