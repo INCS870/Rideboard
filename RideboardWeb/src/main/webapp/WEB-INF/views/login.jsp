@@ -10,20 +10,19 @@
 	<main> 
 		<form:form name="submitForm" action="login" method="POST">
 			<div align="center">
-				<br />
-				<div style="color: red; background-color: #FFFFFF">${error}</div>
-				<br />
+				<br/>
+				<br/>
 				<table style="background-color: #EEEEEE">
 					<tr>
 						<td>&nbsp;</td>
 					</tr>
 					<tr>
 						<td>User Name</td>
-						<td><input type="text" name="userName" /></td>
+						<td><input type="text" name="userName" autoComplete='none' /></td>
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td><input type="password" name="password" /></td>
+						<td><input type="password" name="password" autoComplete='none' /></td>
 					</tr>
 					<tr>
 						<td colspan="2">&nbsp;</td>

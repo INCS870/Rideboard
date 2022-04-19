@@ -153,11 +153,7 @@
 	</div>
 	<%@ include file="footer.jsp"%>
 	</div>
-	<%@ include file="profile.jsp"%>
-	<script
-		src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
-
-	<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+	
 	<script src='https://www.amcharts.com/lib/3/amcharts.js'></script>
 	<script src='https://www.amcharts.com/lib/3/serial.js'></script>
 	<script src='https://www.amcharts.com/lib/3/themes/light.js'></script>
@@ -189,8 +185,8 @@ function toggleClass(el, className) {
 
 // User avatar dropdown functionality
 function setUserDropdownListener() {
-  const userAvatar = $('.header__avatar');
-
+  const userAvatar = $('[class^=header__avatar]');
+//  const userAvatar = $('.header__avatar');
   userAvatar.on('click', function (e) {
     const dropdown = $(this).children('.dropdown');
     toggleClass(dropdown, 'dropdown--active');
