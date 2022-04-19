@@ -1,5 +1,5 @@
 <div id="divProfile">
-	<table border="0">
+	<table style="border:none">
 		<tr>
 			<td align="left"><b>${userObj.profileName}</b></td>
 			<td align="right">
@@ -15,7 +15,7 @@
 		<tr>
 			<td colspan="2">
 				<div id="readonlyProfileDiv">
-					<table border="0">
+					<table style="border:none">
 						<tr>
 							<td>User Id:</td>
 							<td>${userObj.userName}</td>
@@ -125,15 +125,20 @@
 			$("#readonlyProfileDiv").show();
 		}
 		function updateProfile() {
-			//$("#updateProfileBtn").attr("disabled", "true");			
+			const reg = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;			
 			if($("#updatePwdChk").prop("checked")) {
-				if($("#password").val() == "" || $("#newPassword").val() == "" || $("#confirmPwdTxt").val() == "") {
-					alert("There is blank password value");
+				var nPwd = $("#newPassword").val();
+				if($("#password").val() == "" || nPwd == "" || $("#confirmPwdTxt").val() == "") {
+					alert("Password cannot be blank.");
 					//$("#updateProfileBtn").attr("disabled", "false");
 					return;
 				}
-				if($("#newPassword").val() != $("#confirmPwdTxt").val()) {
-					alert("New password not match");
+				if(!reg.exec(nPwd.trim())) {
+					alert("Password must be at least 8 characters include 1 number and 1 symbol(!@#$%^&*).");
+					return;
+				}
+				if(nPwd != $("#confirmPwdTxt").val()) {
+					alert("New password and Confirm password not match");
 					//$("#updateProfileBtn").attr("disabled", "false");
 					return;
 				}
