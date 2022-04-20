@@ -15,7 +15,7 @@
 		<javax.jstl.version>1.2</javax.jstl.version>
 		<org.springframework-version>5.3.18</org.springframework-version>
 		<org.spring.jpa.version>2.6.4</org.spring.jpa.version>
-		<org.hibernate.version>5.6.5.Final</org.hibernate.version>
+		<org.hibernate.version>5.6.7.Final</org.hibernate.version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>2.0.0-alpha7</org.slf4j-version>
 		<org.log4j-version>2.17.2</org.log4j-version>
