@@ -14,13 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 public class SecurityFilter implements Filter {
 	private static Logger logger = LoggerFactory.getLogger(SecurityFilter.class);
-	
+
 	@Override
 	public void destroy() {
-		
+
 	}
 
 	@Override
@@ -30,19 +29,20 @@ public class SecurityFilter implements Filter {
 		HttpServletResponse response = (HttpServletResponse) res;
 		response.addHeader("X-Content-Type-Options", "nosniff");
 		response.addHeader("X-Frame-Options", "SAMEORIGIN");
-		//response.addHeader("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval'");
-		response.addHeader("Content-Security-Policy", "default-src 'self' www.amcharts.com  'unsafe-inline' 'unsafe-eval'");
-		
-		response.setHeader("X-Powered-By","");
-		response.addHeader("X-XSS-Protection","1; mode=block"); 
+		// response.addHeader("Content-Security-Policy", "default-src 'self'
+		// 'unsafe-inline' 'unsafe-eval'");
+		response.addHeader("Content-Security-Policy",
+				"default-src 'self' www.amcharts.com  'unsafe-inline' 'unsafe-eval'");
+
+		response.setHeader("X-Powered-By", "");
+		response.addHeader("X-XSS-Protection", "1; mode=block");
 		response.addHeader("Cache-Control", "no-cache, no-store, must-revalidate, private");
 		response.addHeader("Pragma", "no-cache");
 		response.addHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
-		
+
 		String urlStr = request.getRequestURI();
-		if ((urlStr != null && urlStr.length() > 0 && "~"
-				.equalsIgnoreCase(urlStr.substring(urlStr.length() - 1)))
-				|| urlStr.indexOf("~?") > 0) {
+		if (urlStr != null && ((urlStr.length() > 0 && "~".equalsIgnoreCase(urlStr.substring(urlStr.length() - 1)))
+				|| urlStr.indexOf("~?") > 0)) {
 			logger.info("Invalid URL.");
 
 			response.sendError(HttpServletResponse.SC_NOT_FOUND);
