@@ -35,6 +35,7 @@ public class CryptoUtil {
 	}
 
 	public static String encrypt(String strToEncrypt) {
+		if(strToEncrypt == null) return null;
 		try {
 			byte[] salt = getSalt();
 			//byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -56,6 +57,7 @@ public class CryptoUtil {
 	}
 
 	public static String decrypt(String strToDecrypt) {
+		if(strToDecrypt == null) return null;
 		try {
 			String saltHex = strToDecrypt.substring(0,32);
 			byte[] salt = hexToBytes(saltHex);
@@ -106,9 +108,6 @@ public class CryptoUtil {
 	}
 
 	public static void main(String args[]) throws Exception {
-		String encHex = encrypt("Password1234");
-		System.out.println(" HEX AES: " + encHex);
-		System.out.println(" ORG AES: " + decrypt(encHex));
 	}
 
 	private final static String AES_KEY = "09565EFD54A1862A9300CF99FC8C995392FC1279B31BC67B7CD00B566EE15799";
