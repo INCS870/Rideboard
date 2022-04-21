@@ -117,9 +117,6 @@ public class MainController {
 		String newPwd = loginBean.getNewPassword();
 		String newEmail = loginBean.getEmail();
 		logger.info("loginBean " + loginBean);
-		logger.debug("loginBean email " + newEmail);
-		logger.debug("loginBean pwd " + currPwd);
-		logger.debug("loginBean new " + newPwd);
 
 		logger.info("get profile from user " + userId);
 
