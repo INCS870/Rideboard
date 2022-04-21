@@ -7,7 +7,7 @@
 	<artifactId>RideboardWeb</artifactId>
 	<name>RideboardWeb</name>
 	<packaging>war</packaging>
-	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<version>1.1.0</version>
 	<properties>
 		<java-version>1.6</java-version>
 		<javax.servlet.version>2.5</javax.servlet.version>
