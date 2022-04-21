@@ -29,8 +29,7 @@ public class SecurityFilter implements Filter {
 		HttpServletResponse response = (HttpServletResponse) res;
 		response.addHeader("X-Content-Type-Options", "nosniff");
 		response.addHeader("X-Frame-Options", "SAMEORIGIN");
-		// response.addHeader("Content-Security-Policy", "default-src 'self'
-		// 'unsafe-inline' 'unsafe-eval'");
+		// response.addHeader("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval'");
 		response.addHeader("Content-Security-Policy",
 				"default-src 'self' www.amcharts.com  'unsafe-inline' 'unsafe-eval'");
 

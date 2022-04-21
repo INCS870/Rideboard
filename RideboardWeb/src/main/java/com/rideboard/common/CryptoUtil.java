@@ -38,7 +38,6 @@ public class CryptoUtil {
 		if(strToEncrypt == null) return null;
 		try {
 			byte[] salt = getSalt();
-			//byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			IvParameterSpec ivspec = new IvParameterSpec(salt);
 			
 			SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
@@ -49,7 +48,6 @@ public class CryptoUtil {
 			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 			cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivspec);
 			return bytesToHex(salt) + bytesToHex(cipher.doFinal(strToEncrypt.getBytes(StandardCharsets.UTF_8)));
-			//return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes(StandardCharsets.UTF_8)));
 		} catch (Exception e) {
 			System.out.println("Error while encrypting: " + e.toString());
 		}
@@ -61,7 +59,6 @@ public class CryptoUtil {
 		try {
 			String saltHex = strToDecrypt.substring(0,32);
 			byte[] salt = hexToBytes(saltHex);
-//			byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			IvParameterSpec ivspec = new IvParameterSpec(salt);
 
 			SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
@@ -72,7 +69,6 @@ public class CryptoUtil {
 			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
 			cipher.init(Cipher.DECRYPT_MODE, secretKey, ivspec);
 			return new String(cipher.doFinal(hexToBytes(strToDecrypt.substring(32))));
-//			return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
 		} catch (Exception e) {
 			System.out.println("Error while decrypting: " + e.toString());
 		}
@@ -103,7 +99,6 @@ public class CryptoUtil {
 		SecureRandom random = new SecureRandom();
 		byte[] salt = new byte[16];
 		random.nextBytes(salt);
-		//System.out.println("salt: " + bytesToHex(salt));
 		return salt;
 	}
 
@@ -111,5 +106,4 @@ public class CryptoUtil {
 	}
 
 	private final static String AES_KEY = "09565EFD54A1862A9300CF99FC8C995392FC1279B31BC67B7CD00B566EE15799";
-//	private final static String SALT = "~!@#$%^&*()_+`1234567890-=";
 }

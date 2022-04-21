@@ -41,8 +41,6 @@ public class MainController {
 		ModelAndView view = null;
 		LoginBean bean = new LoginBean();
 		Object userId = com.rideboard.common.Utils.getSession("security.userid");
-//		Object roleId = com.rideboard.common.Utils.getSession("security.roleid");
-//		Object userName = com.rideboard.common.Utils.getSession("security.user");
 		
 		logger.info("get profile ");
 		logger.debug("get profile from user " + userId);
