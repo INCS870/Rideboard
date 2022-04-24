@@ -26,13 +26,13 @@ public class PersistenceDataSourceConfig extends org.springframework.jdbc.dataso
 			this.setPassword(com.rideboard.common.CryptoUtil.decrypt(properties.getProperty("password")));
 			this.setDriverClassName(properties.getProperty("driverClassName"));
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		} finally {
 			if(fis != null) {
 				try {
 					fis.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 			}
 		}

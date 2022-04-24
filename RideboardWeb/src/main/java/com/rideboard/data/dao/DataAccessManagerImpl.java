@@ -33,7 +33,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 					trans.commit();
 			} catch (Exception e) {
 				logger.error("Failed to insert object into " + obj.getClass().getName(), e);
-				e.printStackTrace();
+				//e.printStackTrace();
 				rollback();
 			}
 			return id == null ? -1 : id.intValue();
@@ -58,7 +58,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				return 1;
 			} catch (Exception e) {
 				logger.error("Failed to update from " + obj.getClass().getName(), e);
-				e.printStackTrace();
+				//e.printStackTrace();
 				rollback();
 			}
 		}
@@ -82,7 +82,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				return 1;
 			} catch (Exception e) {
 				logger.error("Failed to delete from " + obj.getClass().getName(), e);
-				e.printStackTrace();
+				//e.printStackTrace();
 				rollback();
 			}
 		}
@@ -108,7 +108,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				logger.error("Failed to search from " + c.getName() + " on " + col + " = " + val, nre);
 			} catch (Exception e) {
 				logger.error("Failed to search from " + c.getName() + " on " + col + " = " + val, e);
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		return retVal;
@@ -131,7 +131,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				list = session.createQuery(criteria).getResultList();
 			} catch (Exception e) {
 				logger.error("Failed to search from " + c.getName() + " on " + col + " = " + val, e);
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		return list;
@@ -154,7 +154,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				list = session.createQuery(criteria).getResultList();
 			} catch (Exception e) {
 				logger.error("Failed to search from " + c.getName() + " on " + col + " ~ " + val, e);
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		return list;
@@ -162,7 +162,6 @@ public class DataAccessManagerImpl implements DataAccessManager {
 
 	@Override
 	public <T> void execute(Class<T> c, String sql) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -185,7 +184,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			retVal = query.getSingleResult();
 		} catch (Exception e) {
 			logger.error("Failed to get last from " + c.getName(), e);
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return retVal;
 	}
@@ -209,7 +208,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			retVal = query.getSingleResult();
 		} catch (Exception e) {
 			logger.error("Failed to get last from " + c.getName(), e);
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return retVal;
 	}
@@ -228,7 +227,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			list = query.getResultList();
 		} catch (Exception e) {
 			logger.error("Failed to get all from " + c.getName(), e);
-			e.printStackTrace();
+			//e.printStackTrace();
 		} 
 		return list;
 	}

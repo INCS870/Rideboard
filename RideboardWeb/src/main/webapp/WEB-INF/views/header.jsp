@@ -52,7 +52,6 @@
 	<script type="text/javascript" src="resources/scripts/jquery.validate.unobtrusive.min.js"></script>
 	<script type="text/javascript" src="resources/scripts/jquery.validate.date.js"></script>
 	<script type="text/javascript" src="resources/scripts/jquery-ui-1.12.1.min.js"></script>
-	<script type="text/javascript" src="resources/scripts/modernizr-2.8.3.js"></script>
 	<script type="text/javascript" src="resources/scripts/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="resources/scripts/jquery.jclock.js"></script>
 	<script type="text/javascript" src="resources/scripts/bootstrap.min.js"></script>
