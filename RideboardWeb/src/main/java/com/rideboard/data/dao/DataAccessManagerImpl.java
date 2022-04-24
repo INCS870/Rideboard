@@ -162,7 +162,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 
 	@Override
 	public <T> void execute(Class<T> c, String sql) {
-
+		logger.info("execute " + sql);
 	}
 
 	@Override

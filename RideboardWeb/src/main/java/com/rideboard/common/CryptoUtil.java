@@ -102,8 +102,8 @@ public class CryptoUtil {
 		return salt;
 	}
 
-	public static void main(String args[]) throws Exception {
-	}
+//	public static void main(String args[]) throws Exception {
+//	}
 
 	private final static String AES_KEY = "09565EFD54A1862A9300CF99FC8C995392FC1279B31BC67B7CD00B566EE15799";
 }
