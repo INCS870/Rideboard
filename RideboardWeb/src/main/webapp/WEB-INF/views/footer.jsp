@@ -13,6 +13,10 @@
 				<td>
 					<h6 id="realTimeClock"></h6>
 				</td>
+				<td> | </td>
+				<td>
+					<h6>v1.1</h6>
+				</td>
 			</tr>
 		</table>
 	</div>
