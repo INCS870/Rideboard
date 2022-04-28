@@ -90,7 +90,7 @@ public class DashInfoBean implements java.io.Serializable {
 		sponsorCnt++;
 	}
 
-	public void Sponsor(SponsorInfoBean sponsorInfo) {
+	public void removeSponsorInfo(SponsorInfoBean sponsorInfo) {
 		if (sponsorInfo == null)
 			return;
 		if (sponsorList == null)

@@ -2,6 +2,8 @@ package com.rideboard.data.dao;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -31,7 +33,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 					trans.commit();
 			} catch (Exception e) {
 				logger.error("Failed to insert object into " + obj.getClass().getName(), e);
-				e.printStackTrace();
+				
 				rollback();
 			}
 			return id == null ? -1 : id.intValue();
@@ -56,7 +58,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				return 1;
 			} catch (Exception e) {
 				logger.error("Failed to update from " + obj.getClass().getName(), e);
-				e.printStackTrace();
+				
 				rollback();
 			}
 		}
@@ -80,7 +82,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 				return 1;
 			} catch (Exception e) {
 				logger.error("Failed to delete from " + obj.getClass().getName(), e);
-				e.printStackTrace();
+				
 				rollback();
 			}
 		}
@@ -97,16 +99,16 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			logger.debug("\nOpen Session by: " + sessionFactory);
 			try {
 				openSession();
-				javax.persistence.criteria.CriteriaBuilder builder = session.getCriteriaBuilder();
+				CriteriaBuilder builder = session.getCriteriaBuilder();
 				CriteriaQuery<T> criteria = builder.createQuery(c);
 				Root<T> root = criteria.from(c);
 				criteria.where(builder.equal(root.get(col).as(val.getClass()), val));
 				retVal = session.createQuery(criteria).getSingleResult();
-			} catch (javax.persistence.NoResultException nre) {
+			} catch (NoResultException nre) {
 				logger.error("Failed to search from " + c.getName() + " on " + col + " = " + val, nre);
 			} catch (Exception e) {
 				logger.error("Failed to search from " + c.getName() + " on " + col + " = " + val, e);
-				e.printStackTrace();
+				
 			}
 		}
 		return retVal;
@@ -122,14 +124,14 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			logger.debug("\nOpen Session by: " + sessionFactory);
 			try {
 				openSession();
-				javax.persistence.criteria.CriteriaBuilder builder = session.getCriteriaBuilder();
+				CriteriaBuilder builder = session.getCriteriaBuilder();
 				CriteriaQuery<T> criteria = builder.createQuery(c);
 				Root<T> root = criteria.from(c);
 				criteria.where(builder.equal(root.get(col).as(val.getClass()), val));
 				list = session.createQuery(criteria).getResultList();
 			} catch (Exception e) {
 				logger.error("Failed to search from " + c.getName() + " on " + col + " = " + val, e);
-				e.printStackTrace();
+				
 			}
 		}
 		return list;
@@ -145,14 +147,14 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			logger.debug("\nOpen Session by: " + sessionFactory);
 			try {
 				openSession();
-				javax.persistence.criteria.CriteriaBuilder builder = session.getCriteriaBuilder();
+				CriteriaBuilder builder = session.getCriteriaBuilder();
 				CriteriaQuery<T> criteria = builder.createQuery(c);
 				Root<T> root = criteria.from(c);
 				criteria = criteria.where(builder.like(root.get(col).as(String.class), "%" + val + "%"));
 				list = session.createQuery(criteria).getResultList();
 			} catch (Exception e) {
 				logger.error("Failed to search from " + c.getName() + " on " + col + " ~ " + val, e);
-				e.printStackTrace();
+				
 			}
 		}
 		return list;
@@ -160,8 +162,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 
 	@Override
 	public <T> void execute(Class<T> c, String sql) {
-		// TODO Auto-generated method stub
-
+		logger.info("execute " + sql);
 	}
 
 	@Override
@@ -175,7 +176,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 		}
 		try {
 			openSession();
-			javax.persistence.criteria.CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<T> criteria = builder.createQuery(c);
 			criteria.orderBy(builder.asc(criteria.from(c).get(keyColumn)));
 			Query<T> query = session.createQuery(criteria);
@@ -183,7 +184,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			retVal = query.getSingleResult();
 		} catch (Exception e) {
 			logger.error("Failed to get last from " + c.getName(), e);
-			e.printStackTrace();
+			
 		}
 		return retVal;
 	}
@@ -199,7 +200,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 		}
 		try {
 			openSession();
-			javax.persistence.criteria.CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<T> criteria = builder.createQuery(c);
 			criteria.orderBy(builder.desc(criteria.from(c).get(keyColumn)));
 			Query<T> query = session.createQuery(criteria);
@@ -207,7 +208,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			retVal = query.getSingleResult();
 		} catch (Exception e) {
 			logger.error("Failed to get last from " + c.getName(), e);
-			e.printStackTrace();
+			
 		}
 		return retVal;
 	}
@@ -226,7 +227,7 @@ public class DataAccessManagerImpl implements DataAccessManager {
 			list = query.getResultList();
 		} catch (Exception e) {
 			logger.error("Failed to get all from " + c.getName(), e);
-			e.printStackTrace();
+			
 		} 
 		return list;
 	}

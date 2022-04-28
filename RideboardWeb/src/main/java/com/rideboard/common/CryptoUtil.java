@@ -35,19 +35,19 @@ public class CryptoUtil {
 	}
 
 	public static String encrypt(String strToEncrypt) {
+		if(strToEncrypt == null) return null;
 		try {
-			byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-			IvParameterSpec ivspec = new IvParameterSpec(iv);
-
+			byte[] salt = getSalt();
+			IvParameterSpec ivspec = new IvParameterSpec(salt);
+			
 			SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-			KeySpec spec = new PBEKeySpec(AES_KEY.toCharArray(), SALT.getBytes(), 65536, 256);
+			KeySpec spec = new PBEKeySpec(AES_KEY.toCharArray(), /*SALT.getBytes()*/salt, 65536, 256);
 			SecretKey tmp = factory.generateSecret(spec);
 			SecretKeySpec secretKey = new SecretKeySpec(tmp.getEncoded(), "AES");
 
 			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 			cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivspec);
-			return bytesToHex(cipher.doFinal(strToEncrypt.getBytes(StandardCharsets.UTF_8)));
-			//return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes(StandardCharsets.UTF_8)));
+			return bytesToHex(salt) + bytesToHex(cipher.doFinal(strToEncrypt.getBytes(StandardCharsets.UTF_8)));
 		} catch (Exception e) {
 			System.out.println("Error while encrypting: " + e.toString());
 		}
@@ -55,19 +55,20 @@ public class CryptoUtil {
 	}
 
 	public static String decrypt(String strToDecrypt) {
+		if(strToDecrypt == null) return null;
 		try {
-			byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-			IvParameterSpec ivspec = new IvParameterSpec(iv);
+			String saltHex = strToDecrypt.substring(0,32);
+			byte[] salt = hexToBytes(saltHex);
+			IvParameterSpec ivspec = new IvParameterSpec(salt);
 
 			SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-			KeySpec spec = new PBEKeySpec(AES_KEY.toCharArray(), SALT.getBytes(), 65536, 256);
+			KeySpec spec = new PBEKeySpec(AES_KEY.toCharArray(), /*SALT.getBytes()*/salt, 65536, 256);
 			SecretKey tmp = factory.generateSecret(spec);
 			SecretKeySpec secretKey = new SecretKeySpec(tmp.getEncoded(), "AES");
 
 			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
 			cipher.init(Cipher.DECRYPT_MODE, secretKey, ivspec);
-			return new String(cipher.doFinal(hexToByte(strToDecrypt)));
-//			return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
+			return new String(cipher.doFinal(hexToBytes(strToDecrypt.substring(32))));
 		} catch (Exception e) {
 			System.out.println("Error while decrypting: " + e.toString());
 		}
@@ -85,7 +86,7 @@ public class CryptoUtil {
 		return new String(hexChars);
 	}
 
-	private static byte[] hexToByte(String s) {
+	private static byte[] hexToBytes(String s) {
 		int len = s.length();
 		byte[] data = new byte[len / 2];
 		for (int i = 0; i < len; i += 2) {
@@ -93,12 +94,16 @@ public class CryptoUtil {
 		}
 		return data;
 	}
-
-	public static void main(String args[]) throws Exception {
-		System.out.println(" HEX AES: " + encrypt("Password1234"));
-		System.out.println(" ORG AES: " + decrypt("FE37367CAB10529FE577B6AD6A18F749"));
+	
+	private static byte[] getSalt() {
+		SecureRandom random = new SecureRandom();
+		byte[] salt = new byte[16];
+		random.nextBytes(salt);
+		return salt;
 	}
 
+//	public static void main(String args[]) throws Exception {
+//	}
+
 	private final static String AES_KEY = "09565EFD54A1862A9300CF99FC8C995392FC1279B31BC67B7CD00B566EE15799";
-	private final static String SALT = "~!@#$%^&*()_+`1234567890-=";
 }

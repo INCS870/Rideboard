@@ -11,14 +11,12 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class Utils {
-	private final static java.text.SimpleDateFormat DATE_FORMAT = new java.text.SimpleDateFormat("yyyy-MM-dd");
-	private final static java.text.SimpleDateFormat DATETIME_FORMAT = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public static String formatDate(java.util.Date date) {
-		return DATE_FORMAT.format(date);
+		return new java.text.SimpleDateFormat("yyyy-MM-dd").format(date);
 	}
 	public static String formatDateTime(java.util.Date date) {
-		return DATETIME_FORMAT.format(date);
+		return new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
 	}
 	
 	public static String hash(String plain) {
@@ -27,7 +25,7 @@ public class Utils {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			hashedraw = digest.digest(plain.getBytes(StandardCharsets.UTF_8));
 		} catch(Exception e) {
-			e.printStackTrace();
+			
 		}
 		return new String(Hex.encode(hashedraw));
 	}

@@ -41,8 +41,6 @@ public class MainController {
 		ModelAndView view = null;
 		LoginBean bean = new LoginBean();
 		Object userId = com.rideboard.common.Utils.getSession("security.userid");
-//		Object roleId = com.rideboard.common.Utils.getSession("security.roleid");
-//		Object userName = com.rideboard.common.Utils.getSession("security.user");
 		
 		logger.info("get profile ");
 		logger.debug("get profile from user " + userId);
@@ -117,9 +115,6 @@ public class MainController {
 		String newPwd = loginBean.getNewPassword();
 		String newEmail = loginBean.getEmail();
 		logger.info("loginBean " + loginBean);
-		logger.debug("loginBean email " + newEmail);
-		logger.debug("loginBean pwd " + currPwd);
-		logger.debug("loginBean new " + newPwd);
 
 		logger.info("get profile from user " + userId);
 
