@@ -7,19 +7,21 @@
 	<artifactId>RideboardWeb</artifactId>
 	<name>RideboardWeb</name>
 	<packaging>war</packaging>
-	<version>1.0.0-BUILD-SNAPSHOT</version>
-	<properties>
+	<version>1.1.0</version>
+	<properties> 
 		<java-version>1.6</java-version>
 		<javax.servlet.version>2.5</javax.servlet.version>
 		<javax.jsp.version>2.2</javax.jsp.version>
 		<javax.jstl.version>1.2</javax.jstl.version>
-		<org.springframework-version>5.3.18</org.springframework-version>
+		<org.springframework-version>5.3.19</org.springframework-version>
 		<org.spring.jpa.version>2.6.4</org.spring.jpa.version>
-		<org.hibernate.version>5.6.5.Final</org.hibernate.version>
-		<org.aspectj-version>1.6.10</org.aspectj-version>
+		<org.hibernate.version>5.6.8.Final</org.hibernate.version>
+		<org.aspectj-version>1.9.9.1</org.aspectj-version>
 		<org.slf4j-version>2.0.0-alpha7</org.slf4j-version>
 		<org.log4j-version>2.17.2</org.log4j-version>
 		<org.bouncycastle.version>1.70</org.bouncycastle.version>
+  		<sonar.organization>incs870</sonar.organization>
+  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -56,6 +58,7 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- Logging -->
@@ -134,11 +137,11 @@
 
 		<!-- DAO -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${org.hibernate.version}</version>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>${org.hibernate.version}</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.reactivestreams</groupId>
 			<artifactId>reactive-streams</artifactId>
@@ -177,7 +180,9 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.3.2</version>
 				<configuration>
-					<warSourceDirectory>WebContent</warSourceDirectory>
+<!-- 					<warSourceDirectory>WebContent</warSourceDirectory> -->
+					<webXml>WebContent\WEB-INF\web.xml</webXml>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 			<plugin>
