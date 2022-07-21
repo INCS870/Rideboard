@@ -18,7 +18,7 @@
 		<org.hibernate.version>5.6.8.Final</org.hibernate.version>
 		<org.aspectj-version>1.9.9.1</org.aspectj-version>
 		<org.slf4j-version>2.0.0-alpha7</org.slf4j-version>
-		<org.log4j-version>2.17.2</org.log4j-version>
+		<org.log4j-version>2.18.0</org.log4j-version>
 		<org.bouncycastle.version>1.70</org.bouncycastle.version>
   		<sonar.organization>incs870</sonar.organization>
   		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
